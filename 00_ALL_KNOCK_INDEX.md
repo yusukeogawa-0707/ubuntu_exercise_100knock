@@ -1,0 +1,1642 @@
+# 全Knock一覧（GitHub管理版）
+
+## v0 Foundation
+
+- [Ubuntu CLI基礎100本ノック](v0_foundation/local_cli_v0_100knock.md)
+- [研究サーバSSH応用100本ノック](v0_foundation/server_cli_v0_100knock.md)
+
+---
+
+# 全Knock一覧
+
+## Python研究環境100本ノック v1
+- Knock 001: Pythonの場所を確認する
+- Knock 002: Pythonのバージョンを確認する
+- Knock 003: pipの場所を確認する
+- Knock 004: pipのバージョンを確認する
+- Knock 005: python経由でpipを呼ぶ
+- Knock 006: 仮想環境を作る
+- Knock 007: 仮想環境を有効化する
+- Knock 008: 仮想環境内のPythonを確認する
+- Knock 009: 仮想環境内のpipを確認する
+- Knock 010: 仮想環境を抜ける
+- Knock 011: パッケージ一覧を見る
+- Knock 012: numpyを入れる
+- Knock 013: numpyをimport確認する
+- Knock 014: requirementsを書き出す
+- Knock 015: requirementsから入れる
+- Knock 016: パッケージ詳細を見る
+- Knock 017: パッケージを更新する
+- Knock 018: パッケージを削除する
+- Knock 019: 再度numpyを入れる
+- Knock 020: Pythonの検索パスを見る
+- Knock 021: 実行ファイルの場所をPythonから見る
+- Knock 022: 作業ディレクトリをPythonから見る
+- Knock 023: 簡単なスクリプトを作る
+- Knock 024: スクリプトを実行する
+- Knock 025: PYTHONPATHを一時指定する
+- Knock 026: 環境変数を表示する
+- Knock 027: PATHを確認する
+- Knock 028: CUDA_VISIBLE_DEVICESの形を覚える
+- Knock 029: uvが入っているか確認する
+- Knock 030: uvのバージョンを見る
+- Knock 031: uvで仮想環境を作る
+- Knock 032: uv環境を有効化する
+- Knock 033: uv pipでnumpyを入れる
+- Knock 034: uv pip listを見る
+- Knock 035: 依存関係をファイル出力する
+- Knock 036: pyproject.tomlを最小作成する
+- Knock 037: VSCode用設定ディレクトリを作る
+- Knock 038: VSCode設定を最小作成する
+- Knock 039: 環境を丸ごと削除する前に確認する
+- Knock 040: pandasをインストールする
+- Knock 041: pandasのimport確認をする
+- Knock 042: matplotlibをインストールする
+- Knock 043: matplotlibのimport確認をする
+- Knock 044: scikit-learnをインストールする
+- Knock 045: scikit-learnのimport確認をする
+- Knock 046: jupyterをインストールする
+- Knock 047: jupyterのimport確認をする
+- Knock 048: pytestをインストールする
+- Knock 049: pytestのimport確認をする
+- Knock 050: blackをインストールする
+- Knock 051: blackのimport確認をする
+- Knock 052: ruffをインストールする
+- Knock 053: ruffのimport確認をする
+- Knock 054: ipykernelをインストールする
+- Knock 055: ipykernelのimport確認をする
+- Knock 056: tqdmをインストールする
+- Knock 057: tqdmのimport確認をする
+- Knock 058: pyyamlをインストールする
+- Knock 059: pyyamlのimport確認をする
+- Knock 060: requestsをインストールする
+- Knock 061: requestsのimport確認をする
+- Knock 062: richをインストールする
+- Knock 063: richのimport確認をする
+- Knock 064: pip checkで依存関係を確認する
+- Knock 065: pip cacheの場所を見る
+- Knock 066: pip cache容量を確認する
+- Knock 067: pip cacheを削除する
+- Knock 068: site-packagesの場所を見る
+- Knock 069: ユーザサイトを確認する
+- Knock 070: モジュール実行の形を覚える
+- Knock 071: requirementsを行数確認する
+- Knock 072: requirementsを検索する
+- Knock 073: 実行時刻をログに残す
+- Knock 074: Pythonとpipの対応を1行で確認する
+- Knock 075: 仮想環境名を確認する
+- Knock 076: ipykernelを登録する
+- Knock 077: pytestで簡単なテストを作る
+- Knock 078: pytestを実行する
+- Knock 079: ruffで構文チェックする
+- Knock 080: blackでフォーマット確認する
+- Knock 081: 現在環境の概要を保存する
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Python研究環境100本ノック v2
+- Knock 001: プロジェクト雛形を作る
+- Knock 002: pyprojectを作る
+- Knock 003: uv syncの前提確認
+- Knock 004: uvで環境同期する
+- Knock 005: venvフォールバックを用意する
+- Knock 006: requirementsを用意する
+- Knock 007: requirementsから入れる
+- Knock 008: 設定ファイルを作る
+- Knock 009: 実験スクリプトを作る
+- Knock 010: 実験をログ保存実行する
+- Knock 011: 実験IDを変数にする
+- Knock 012: 環境レポートを保存する
+- Knock 013: GPU指定の実行形を使う
+- Knock 014: 環境変数で実験名を渡す
+- Knock 015: .env例を作る
+- Knock 016: 秘密情報をgitignoreする
+- Knock 017: import時間を計測する
+- Knock 018: site-packages容量を見る
+- Knock 019: 環境をtarで固めない判断をする
+- Knock 020: pip freeze差分を見る
+- Knock 021: 設定ファイルvariant 01を作る
+- Knock 022: variant 01をログ保存実行する
+- Knock 023: 設定ファイルvariant 02を作る
+- Knock 024: variant 02をログ保存実行する
+- Knock 025: 設定ファイルvariant 03を作る
+- Knock 026: variant 03をログ保存実行する
+- Knock 027: 設定ファイルvariant 04を作る
+- Knock 028: variant 04をログ保存実行する
+- Knock 029: 設定ファイルvariant 05を作る
+- Knock 030: variant 05をログ保存実行する
+- Knock 031: 設定ファイルvariant 06を作る
+- Knock 032: variant 06をログ保存実行する
+- Knock 033: 設定ファイルvariant 07を作る
+- Knock 034: variant 07をログ保存実行する
+- Knock 035: 設定ファイルvariant 08を作る
+- Knock 036: variant 08をログ保存実行する
+- Knock 037: 設定ファイルvariant 09を作る
+- Knock 038: variant 09をログ保存実行する
+- Knock 039: 設定ファイルvariant 10を作る
+- Knock 040: variant 10をログ保存実行する
+- Knock 041: 設定ファイルvariant 11を作る
+- Knock 042: variant 11をログ保存実行する
+- Knock 043: 設定ファイルvariant 12を作る
+- Knock 044: variant 12をログ保存実行する
+- Knock 045: 設定ファイルvariant 13を作る
+- Knock 046: variant 13をログ保存実行する
+- Knock 047: 設定ファイルvariant 14を作る
+- Knock 048: variant 14をログ保存実行する
+- Knock 049: 設定ファイルvariant 15を作る
+- Knock 050: variant 15をログ保存実行する
+- Knock 051: 設定ファイルvariant 16を作る
+- Knock 052: variant 16をログ保存実行する
+- Knock 053: 設定ファイルvariant 17を作る
+- Knock 054: variant 17をログ保存実行する
+- Knock 055: 設定ファイルvariant 18を作る
+- Knock 056: variant 18をログ保存実行する
+- Knock 057: 設定ファイルvariant 19を作る
+- Knock 058: variant 19をログ保存実行する
+- Knock 059: 設定ファイルvariant 20を作る
+- Knock 060: variant 20をログ保存実行する
+- Knock 061: 設定ファイルvariant 21を作る
+- Knock 062: variant 21をログ保存実行する
+- Knock 063: 設定ファイルvariant 22を作る
+- Knock 064: variant 22をログ保存実行する
+- Knock 065: 設定ファイルvariant 23を作る
+- Knock 066: variant 23をログ保存実行する
+- Knock 067: 設定ファイルvariant 24を作る
+- Knock 068: variant 24をログ保存実行する
+- Knock 069: 設定ファイルvariant 25を作る
+- Knock 070: variant 25をログ保存実行する
+- Knock 071: 設定ファイルvariant 26を作る
+- Knock 072: variant 26をログ保存実行する
+- Knock 073: 設定ファイルvariant 27を作る
+- Knock 074: variant 27をログ保存実行する
+- Knock 075: 設定ファイルvariant 28を作る
+- Knock 076: variant 28をログ保存実行する
+- Knock 077: 設定ファイルvariant 29を作る
+- Knock 078: variant 29をログ保存実行する
+- Knock 079: 設定ファイルvariant 30を作る
+- Knock 080: variant 30をログ保存実行する
+- Knock 081: 全ログからlossを検索する
+- Knock 082: 全ログからaccを検索する
+- Knock 083: 全ログからepochを検索する
+- Knock 084: 全ログからconfigを検索する
+- Knock 085: 全ログからERRORを検索する
+- Knock 086: 全ログからWARNを検索する
+- Knock 087: ログをacc行だけCSV化する
+- Knock 088: 最新ログを開く
+- Knock 089: 全ログのサイズを見る
+- Knock 090: outputsを確認する
+- Knock 091: 環境再作成手順をREADMEに書く
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Git 100本ノック v1
+- Knock 001: 練習用リポジトリを作る
+- Knock 002: ユーザ名を確認する
+- Knock 003: メールを確認する
+- Knock 004: ローカル設定を見る
+- Knock 005: 状態を見る
+- Knock 006: READMEを作る
+- Knock 007: 差分を見る
+- Knock 008: ステージする
+- Knock 009: コミットする
+- Knock 010: ログを見る
+- Knock 011: src/train.pyを作成・変更する
+- Knock 012: src/train.pyの差分を見る
+- Knock 013: src/train.pyをステージする
+- Knock 014: src/train.pyをコミットする
+- Knock 015: src/eval.pyを作成・変更する
+- Knock 016: src/eval.pyの差分を見る
+- Knock 017: src/eval.pyをステージする
+- Knock 018: src/eval.pyをコミットする
+- Knock 019: configs/base.yamlを作成・変更する
+- Knock 020: configs/base.yamlの差分を見る
+- Knock 021: configs/base.yamlをステージする
+- Knock 022: configs/base.yamlをコミットする
+- Knock 023: data/sample.csvを作成・変更する
+- Knock 024: data/sample.csvの差分を見る
+- Knock 025: data/sample.csvをステージする
+- Knock 026: data/sample.csvをコミットする
+- Knock 027: notes/memo.mdを作成・変更する
+- Knock 028: notes/memo.mdの差分を見る
+- Knock 029: notes/memo.mdをステージする
+- Knock 030: notes/memo.mdをコミットする
+- Knock 031: scripts/run.shを作成・変更する
+- Knock 032: scripts/run.shの差分を見る
+- Knock 033: scripts/run.shをステージする
+- Knock 034: scripts/run.shをコミットする
+- Knock 035: requirements.txtを作成・変更する
+- Knock 036: requirements.txtの差分を見る
+- Knock 037: requirements.txtをステージする
+- Knock 038: requirements.txtをコミットする
+- Knock 039: README.mdを作成・変更する
+- Knock 040: README.mdの差分を見る
+- Knock 041: README.mdをステージする
+- Knock 042: README.mdをコミットする
+- Knock 043: logs/debug.logを作成・変更する
+- Knock 044: logs/debug.logの差分を見る
+- Knock 045: logs/debug.logをステージする
+- Knock 046: logs/debug.logをコミットする
+- Knock 047: outputs/result.txtを作成・変更する
+- Knock 048: outputs/result.txtの差分を見る
+- Knock 049: outputs/result.txtをステージする
+- Knock 050: outputs/result.txtをコミットする
+- Knock 051: 作業ツリーを短く見る
+- Knock 052: 直近3件のログを見る
+- Knock 053: ファイル一覧をGit管理対象だけ表示
+- Knock 054: READMEの履歴を見る
+- Knock 055: コミット内容を見る
+- Knock 056: コミット詳細を見る
+- Knock 057: 未ステージ変更を戻す練習用ファイルを作る
+- Knock 058: 未ステージ変更を戻す
+- Knock 059: ステージを取り消す練習
+- Knock 060: ステージを取り消す
+- Knock 061: ブランチ一覧を見る
+- Knock 062: 新しいブランチを作る
+- Knock 063: ブランチ上で変更する
+- Knock 064: mainに戻る
+- Knock 065: ブランチ差分を見る
+- Knock 066: マージする
+- Knock 067: 不要ブランチを消す
+- Knock 068: 無視ファイルを作る
+- Knock 069: gitignoreをコミットする
+- Knock 070: 無視確認する
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Git 100本ノック v2
+- Knock 001: 練習用リポジトリを作る
+- Knock 002: ユーザ名を確認する
+- Knock 003: メールを確認する
+- Knock 004: ローカル設定を見る
+- Knock 005: 状態を見る
+- Knock 006: READMEを作る
+- Knock 007: 差分を見る
+- Knock 008: ステージする
+- Knock 009: コミットする
+- Knock 010: ログを見る
+- Knock 011: remote一覧を見る
+- Knock 012: remoteを追加する形を覚える
+- Knock 013: fetchする
+- Knock 014: pullする
+- Knock 015: pushする形を覚える
+- Knock 016: 変更ファイルの名前だけ見る
+- Knock 017: ステージ差分を見る
+- Knock 018: 一部だけaddする
+- Knock 019: 直前コミットメッセージを直す
+- Knock 020: stashする
+- Knock 021: stash一覧を見る
+- Knock 022: stashを戻す
+- Knock 023: reflogを見る
+- Knock 024: 特定コミットに一時移動する
+- Knock 025: 元ブランチに戻る
+- Knock 026: タグを作る
+- Knock 027: タグ一覧を見る
+- Knock 028: タグ詳細を見る
+- Knock 029: blameを見る
+- Knock 030: bisect開始形を覚える
+- Knock 031: bisectを終了する
+- Knock 032: worktree一覧を見る
+- Knock 033: サブディレクトリだけログを見る
+- Knock 034: 大きいファイル履歴を探す
+- Knock 035: trackedな巨大ファイルを探す
+- Knock 036: README.mdの変更履歴を詳しく見る
+- Knock 037: README.mdの直近差分を見る
+- Knock 038: README.mdを過去版から復元する形
+- Knock 039: src/train.pyの変更履歴を詳しく見る
+- Knock 040: src/train.pyの直近差分を見る
+- Knock 041: src/train.pyを過去版から復元する形
+- Knock 042: configs/base.yamlの変更履歴を詳しく見る
+- Knock 043: configs/base.yamlの直近差分を見る
+- Knock 044: configs/base.yamlを過去版から復元する形
+- Knock 045: requirements.txtの変更履歴を詳しく見る
+- Knock 046: requirements.txtの直近差分を見る
+- Knock 047: requirements.txtを過去版から復元する形
+- Knock 048: .gitignoreの変更履歴を詳しく見る
+- Knock 049: .gitignoreの直近差分を見る
+- Knock 050: .gitignoreを過去版から復元する形
+- Knock 051: notes/memo.mdの変更履歴を詳しく見る
+- Knock 052: notes/memo.mdの直近差分を見る
+- Knock 053: notes/memo.mdを過去版から復元する形
+- Knock 054: scripts/run.shの変更履歴を詳しく見る
+- Knock 055: scripts/run.shの直近差分を見る
+- Knock 056: scripts/run.shを過去版から復元する形
+- Knock 057: data/sample.csvの変更履歴を詳しく見る
+- Knock 058: data/sample.csvの直近差分を見る
+- Knock 059: data/sample.csvを過去版から復元する形
+- Knock 060: tests/test_basic.pyの変更履歴を詳しく見る
+- Knock 061: tests/test_basic.pyの直近差分を見る
+- Knock 062: tests/test_basic.pyを過去版から復元する形
+- Knock 063: pyproject.tomlの変更履歴を詳しく見る
+- Knock 064: pyproject.tomlの直近差分を見る
+- Knock 065: pyproject.tomlを過去版から復元する形
+- Knock 066: 安全に戻すためstatusを見る
+- Knock 067: 復元をコミットする
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## シェルスクリプト100本ノック v1
+- Knock 001: 練習ディレクトリを作る
+- Knock 002: 最初のスクリプトを作る
+- Knock 003: 実行権限を付ける
+- Knock 004: スクリプトを実行する
+- Knock 005: 変数を使う
+- Knock 006: 引数を使う
+- Knock 007: 引数個数を見る
+- Knock 008: 全引数を安全に扱う
+- Knock 009: ifを書く
+- Knock 010: forループを書く
+- Knock 011: whileでファイルを読む
+- Knock 012: 終了ステータスを見る
+- Knock 013: set -eを使う
+- Knock 014: set -uを使う
+- Knock 015: 番号付き実験ディレクトリを作る 01
+- Knock 016: 番号付きログを作る 01
+- Knock 017: 番号付き実験ディレクトリを作る 02
+- Knock 018: 番号付きログを作る 02
+- Knock 019: 番号付き実験ディレクトリを作る 03
+- Knock 020: 番号付きログを作る 03
+- Knock 021: 番号付き実験ディレクトリを作る 04
+- Knock 022: 番号付きログを作る 04
+- Knock 023: 番号付き実験ディレクトリを作る 05
+- Knock 024: 番号付きログを作る 05
+- Knock 025: 番号付き実験ディレクトリを作る 06
+- Knock 026: 番号付きログを作る 06
+- Knock 027: 番号付き実験ディレクトリを作る 07
+- Knock 028: 番号付きログを作る 07
+- Knock 029: 番号付き実験ディレクトリを作る 08
+- Knock 030: 番号付きログを作る 08
+- Knock 031: 番号付き実験ディレクトリを作る 09
+- Knock 032: 番号付きログを作る 09
+- Knock 033: 番号付き実験ディレクトリを作る 10
+- Knock 034: 番号付きログを作る 10
+- Knock 035: 番号付き実験ディレクトリを作る 11
+- Knock 036: 番号付きログを作る 11
+- Knock 037: 番号付き実験ディレクトリを作る 12
+- Knock 038: 番号付きログを作る 12
+- Knock 039: 番号付き実験ディレクトリを作る 13
+- Knock 040: 番号付きログを作る 13
+- Knock 041: 番号付き実験ディレクトリを作る 14
+- Knock 042: 番号付きログを作る 14
+- Knock 043: 番号付き実験ディレクトリを作る 15
+- Knock 044: 番号付きログを作る 15
+- Knock 045: 番号付き実験ディレクトリを作る 16
+- Knock 046: 番号付きログを作る 16
+- Knock 047: 番号付き実験ディレクトリを作る 17
+- Knock 048: 番号付きログを作る 17
+- Knock 049: 番号付き実験ディレクトリを作る 18
+- Knock 050: 番号付きログを作る 18
+- Knock 051: 番号付き実験ディレクトリを作る 19
+- Knock 052: 番号付きログを作る 19
+- Knock 053: 番号付き実験ディレクトリを作る 20
+- Knock 054: 番号付きログを作る 20
+- Knock 055: 番号付き実験ディレクトリを作る 21
+- Knock 056: 番号付きログを作る 21
+- Knock 057: 番号付き実験ディレクトリを作る 22
+- Knock 058: 番号付きログを作る 22
+- Knock 059: 番号付き実験ディレクトリを作る 23
+- Knock 060: 番号付きログを作る 23
+- Knock 061: 番号付き実験ディレクトリを作る 24
+- Knock 062: 番号付きログを作る 24
+- Knock 063: 番号付き実験ディレクトリを作る 25
+- Knock 064: 番号付きログを作る 25
+- Knock 065: 番号付き実験ディレクトリを作る 26
+- Knock 066: 番号付きログを作る 26
+- Knock 067: 番号付き実験ディレクトリを作る 27
+- Knock 068: 番号付きログを作る 27
+- Knock 069: 番号付き実験ディレクトリを作る 28
+- Knock 070: 番号付きログを作る 28
+- Knock 071: 番号付き実験ディレクトリを作る 29
+- Knock 072: 番号付きログを作る 29
+- Knock 073: 番号付き実験ディレクトリを作る 30
+- Knock 074: 番号付きログを作る 30
+- Knock 075: 関数を書く
+- Knock 076: usageを表示する
+- Knock 077: case文を書く
+- Knock 078: trapで終了処理を書く
+- Knock 079: mktempを使う
+- Knock 080: shellcheck前提確認
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## シェルスクリプト100本ノック v2
+- Knock 001: 練習ディレクトリを作る
+- Knock 002: 最初のスクリプトを作る
+- Knock 003: 実行権限を付ける
+- Knock 004: スクリプトを実行する
+- Knock 005: 実験実行スクリプトを作る
+- Knock 006: 実験スクリプトを実行する
+- Knock 007: 複数実験を回す
+- Knock 008: 設定CSVを読む
+- Knock 009: CSVから実験を回す
+- Knock 010: dry-runモードを作る
+- Knock 011: 並列実行の基本
+- Knock 012: 失敗を検知する
+- Knock 013: ログ関数を共通化する
+- Knock 014: sourceで共通関数を読む
+- Knock 015: 一括実験条件 01 を生成する
+- Knock 016: 一括実験条件 02 を生成する
+- Knock 017: 一括実験条件 03 を生成する
+- Knock 018: 一括実験条件 04 を生成する
+- Knock 019: 一括実験条件 05 を生成する
+- Knock 020: 一括実験条件 06 を生成する
+- Knock 021: 一括実験条件 07 を生成する
+- Knock 022: 一括実験条件 08 を生成する
+- Knock 023: 一括実験条件 09 を生成する
+- Knock 024: 一括実験条件 10 を生成する
+- Knock 025: 一括実験条件 11 を生成する
+- Knock 026: 一括実験条件 12 を生成する
+- Knock 027: 一括実験条件 13 を生成する
+- Knock 028: 一括実験条件 14 を生成する
+- Knock 029: 一括実験条件 15 を生成する
+- Knock 030: 一括実験条件 16 を生成する
+- Knock 031: 一括実験条件 17 を生成する
+- Knock 032: 一括実験条件 18 を生成する
+- Knock 033: 一括実験条件 19 を生成する
+- Knock 034: 一括実験条件 20 を生成する
+- Knock 035: 一括実験条件 21 を生成する
+- Knock 036: 一括実験条件 22 を生成する
+- Knock 037: 一括実験条件 23 を生成する
+- Knock 038: 一括実験条件 24 を生成する
+- Knock 039: 一括実験条件 25 を生成する
+- Knock 040: 一括実験条件 26 を生成する
+- Knock 041: 一括実験条件 27 を生成する
+- Knock 042: 一括実験条件 28 を生成する
+- Knock 043: 一括実験条件 29 を生成する
+- Knock 044: 一括実験条件 30 を生成する
+- Knock 045: 一括実験条件 31 を生成する
+- Knock 046: 一括実験条件 32 を生成する
+- Knock 047: 一括実験条件 33 を生成する
+- Knock 048: 一括実験条件 34 を生成する
+- Knock 049: 一括実験条件 35 を生成する
+- Knock 050: 一括実験条件 36 を生成する
+- Knock 051: 一括実験条件 37 を生成する
+- Knock 052: 一括実験条件 38 を生成する
+- Knock 053: 一括実験条件 39 を生成する
+- Knock 054: 一括実験条件 40 を生成する
+- Knock 055: 一括実験条件 41 を生成する
+- Knock 056: 一括実験条件 42 を生成する
+- Knock 057: 一括実験条件 43 を生成する
+- Knock 058: 一括実験条件 44 を生成する
+- Knock 059: 一括実験条件 45 を生成する
+- Knock 060: 条件 01 を安全に実行表示する
+- Knock 061: 条件 02 を安全に実行表示する
+- Knock 062: 条件 03 を安全に実行表示する
+- Knock 063: 条件 04 を安全に実行表示する
+- Knock 064: 条件 05 を安全に実行表示する
+- Knock 065: 条件 06 を安全に実行表示する
+- Knock 066: 条件 07 を安全に実行表示する
+- Knock 067: 条件 08 を安全に実行表示する
+- Knock 068: 条件 09 を安全に実行表示する
+- Knock 069: 条件 10 を安全に実行表示する
+- Knock 070: 条件 11 を安全に実行表示する
+- Knock 071: 条件 12 を安全に実行表示する
+- Knock 072: 条件 13 を安全に実行表示する
+- Knock 073: 条件 14 を安全に実行表示する
+- Knock 074: 条件 15 を安全に実行表示する
+- Knock 075: 条件 16 を安全に実行表示する
+- Knock 076: 条件 17 を安全に実行表示する
+- Knock 077: 条件 18 を安全に実行表示する
+- Knock 078: 条件 19 を安全に実行表示する
+- Knock 079: 条件 20 を安全に実行表示する
+- Knock 080: 条件 21 を安全に実行表示する
+- Knock 081: 条件 22 を安全に実行表示する
+- Knock 082: 条件 23 を安全に実行表示する
+- Knock 083: 条件 24 を安全に実行表示する
+- Knock 084: 条件 25 を安全に実行表示する
+- Knock 085: 実行ログをまとめる
+- Knock 086: 失敗ログだけ集める
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Linux権限・トラブルシュート100本ノック v1
+- Knock 001: 権限表示を見る
+- Knock 002: 自分のユーザを確認する
+- Knock 003: 所属グループを見る
+- Knock 004: ファイルを作る
+- Knock 005: 権限を数値表示する
+- Knock 006: 所有者だけ読書の権限にする
+- Knock 007: 所有者実行可の権限にする
+- Knock 008: 全員読み取りの権限にする
+- Knock 009: スクリプト向けの権限にする
+- Knock 010: 共有編集寄りの権限にする
+- Knock 011: ディレクトリ標準の権限にする
+- Knock 012: 厳しめディレクトリの権限にする
+- Knock 013: 実行権限なしスクリプトを作る
+- Knock 014: 実行権限を付ける
+- Knock 015: トラブル時確認: pwd
+- Knock 016: トラブル時確認: ls -lah
+- Knock 017: トラブル時確認: ls -ld .
+- Knock 018: トラブル時確認: stat sample.txt
+- Knock 019: トラブル時確認: namei -l sample.txt
+- Knock 020: トラブル時確認: df -h .
+- Knock 021: トラブル時確認: du -sh .
+- Knock 022: トラブル時確認: id
+- Knock 023: トラブル時確認: umask
+- Knock 024: トラブル時確認: getfacl sample.txt 2>/dev/null || true
+- Knock 025: Permission denied原因メモ 1: ファイルが存在しない
+- Knock 026: Permission denied原因メモ 2: ディレクトリに入れない
+- Knock 027: Permission denied原因メモ 3: 書き込めない
+- Knock 028: Permission denied原因メモ 4: 実行できない
+- Knock 029: Permission denied原因メモ 5: 所有者が違う
+- Knock 030: Permission denied原因メモ 6: グループが違う
+- Knock 031: Permission denied原因メモ 7: 親ディレクトリにxがない
+- Knock 032: Permission denied原因メモ 8: 読み取り権限がない
+- Knock 033: Permission denied原因メモ 9: 容量不足
+- Knock 034: Permission denied原因メモ 10: パス違い
+- Knock 035: sample.txtの権限を読む
+- Knock 036: run.shの権限を読む
+- Knock 037: .の権限を読む
+- Knock 038: ~/perm100knockの権限を読む
+- Knock 039: /tmpの権限を読む
+- Knock 040: /rootの権限を読む
+- Knock 041: /etc/passwdの権限を読む
+- Knock 042: /etc/shadowの権限を読む
+- Knock 043: /var/logの権限を読む
+- Knock 044: /usr/local/binの権限を読む
+- Knock 045: python3の実行ファイル権限を見る
+- Knock 046: bashの実行ファイル権限を見る
+- Knock 047: sshの実行ファイル権限を見る
+- Knock 048: gitの実行ファイル権限を見る
+- Knock 049: dockerの実行ファイル権限を見る
+- Knock 050: tmuxの実行ファイル権限を見る
+- Knock 051: curlの実行ファイル権限を見る
+- Knock 052: wgetの実行ファイル権限を見る
+- Knock 053: rsyncの実行ファイル権限を見る
+- Knock 054: nvidia-smiの実行ファイル権限を見る
+- Knock 055: chmod u+rを試す
+- Knock 056: chmod u+wを試す
+- Knock 057: chmod u+xを試す
+- Knock 058: chmod g+rを試す
+- Knock 059: chmod g+wを試す
+- Knock 060: chmod o-rを試す
+- Knock 061: chmod a+rを試す
+- Knock 062: chmod a-wを試す
+- Knock 063: chmod u-xを試す
+- Knock 064: chmod +xを試す
+- Knock 065: 総復習チェック 065
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Linux権限・トラブルシュート100本ノック v2
+- Knock 001: 権限表示を見る
+- Knock 002: 自分のユーザを確認する
+- Knock 003: 所属グループを見る
+- Knock 004: ファイルを作る
+- Knock 005: 権限を数値表示する
+- Knock 006: ディレクトリのx権限を理解する
+- Knock 007: ディレクトリ権限を戻す
+- Knock 008: 共有向けディレクトリを作る
+- Knock 009: umaskを確認する
+- Knock 010: umaskを一時変更する
+- Knock 011: sudo可能性を確認する
+- Knock 012: 所有者変更コマンドの形を見る
+- Knock 013: lsofで開いているファイルを見る
+- Knock 014: プロセス所有者を見る
+- Knock 015: 自分のpythonプロセスを見る
+- Knock 016: エラー文言をメモする: Permission denied
+- Knock 017: Permission denied発生時の初動を書く
+- Knock 018: エラー文言をメモする: No such file or directory
+- Knock 019: No such file or directory発生時の初動を書く
+- Knock 020: エラー文言をメモする: command not found
+- Knock 021: command not found発生時の初動を書く
+- Knock 022: エラー文言をメモする: Address already in use
+- Knock 023: Address already in use発生時の初動を書く
+- Knock 024: エラー文言をメモする: No space left on device
+- Knock 025: No space left on device発生時の初動を書く
+- Knock 026: エラー文言をメモする: Killed
+- Knock 027: Killed発生時の初動を書く
+- Knock 028: エラー文言をメモする: CUDA out of memory
+- Knock 029: CUDA out of memory発生時の初動を書く
+- Knock 030: エラー文言をメモする: Connection timed out
+- Knock 031: Connection timed out発生時の初動を書く
+- Knock 032: エラー文言をメモする: Host key verification failed
+- Knock 033: Host key verification failed発生時の初動を書く
+- Knock 034: エラー文言をメモする: Operation not permitted
+- Knock 035: Operation not permitted発生時の初動を書く
+- Knock 036: パス分解して権限を見る: .
+- Knock 037: パス分解して権限を見る: ..
+- Knock 038: パス分解して権限を見る: sample.txt
+- Knock 039: パス分解して権限を見る: run.sh
+- Knock 040: パス分解して権限を見る: shared
+- Knock 041: パス分解して権限を見る: dirx
+- Knock 042: パス分解して権限を見る: /tmp
+- Knock 043: パス分解して権限を見る: /var/tmp
+- Knock 044: パス分解して権限を見る: /etc
+- Knock 045: パス分解して権限を見る: /usr/bin
+- Knock 046: パス分解して権限を見る: /home
+- Knock 047: パス分解して権限を見る: ~
+- Knock 048: cpuトラブル確認セットを作る
+- Knock 049: memトラブル確認セットを作る
+- Knock 050: diskトラブル確認セットを作る
+- Knock 051: inodeトラブル確認セットを作る
+- Knock 052: processトラブル確認セットを作る
+- Knock 053: portトラブル確認セットを作る
+- Knock 054: gpuトラブル確認セットを作る
+- Knock 055: networkトラブル確認セットを作る
+- Knock 056: pathトラブル確認セットを作る
+- Knock 057: permissionトラブル確認セットを作る
+- Knock 058: inode使用量を見る
+- Knock 059: ディスクの大きい場所を見る
+- Knock 060: 総復習チェック 060
+- Knock 061: 総復習チェック 061
+- Knock 062: 総復習チェック 062
+- Knock 063: 総復習チェック 063
+- Knock 064: 総復習チェック 064
+- Knock 065: 総復習チェック 065
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Docker慎重入門100本ノック v1
+- Knock 001: Dockerがあるか確認する
+- Knock 002: Dockerバージョンを見る
+- Knock 003: Docker daemon疎通確認
+- Knock 004: イメージ一覧を見る
+- Knock 005: コンテナ一覧を見る
+- Knock 006: 停止中も含めて見る
+- Knock 007: 容量を見る
+- Knock 008: hello-worldを実行する
+- Knock 009: ubuntuを一回だけ実行する
+- Knock 010: コンテナ内でpwdする
+- Knock 011: コンテナ内でlsする
+- Knock 012: 名前付きコンテナを起動する
+- Knock 013: コンテナログを見る
+- Knock 014: コンテナ内でコマンド実行
+- Knock 015: コンテナを停止する
+- Knock 016: 停止コンテナを削除する
+- Knock 017: イメージを確認する
+- Knock 018: docker runオプションをメモ: --rm
+- Knock 019: docker runオプションをメモ: -it
+- Knock 020: docker runオプションをメモ: -d
+- Knock 021: docker runオプションをメモ: --name
+- Knock 022: docker runオプションをメモ: -p
+- Knock 023: docker runオプションをメモ: -v
+- Knock 024: docker runオプションをメモ: -e
+- Knock 025: docker runオプションをメモ: --workdir
+- Knock 026: docker runオプションをメモ: --user
+- Knock 027: docker runオプションをメモ: --pull=missing
+- Knock 028: 環境変数を渡す
+- Knock 029: 作業ディレクトリを指定する
+- Knock 030: ホストディレクトリをマウントする
+- Knock 031: ポート指定の形を見る
+- Knock 032: 対話シェルを起動する
+- Knock 033: Docker資源確認: docker images
+- Knock 034: Docker資源確認: docker ps -a
+- Knock 035: Docker資源確認: docker volume ls
+- Knock 036: Docker資源確認: docker network ls
+- Knock 037: Docker資源確認: docker system df
+- Knock 038: Docker資源確認: docker builder prune --help
+- Knock 039: Docker資源確認: docker container prune --help
+- Knock 040: Docker資源確認: docker image prune --help
+- Knock 041: Docker資源確認: docker volume prune --help
+- Knock 042: Docker資源確認: docker system prune --help
+- Knock 043: 一時コンテナでコマンド実行 01
+- Knock 044: 一時コンテナでコマンド実行 02
+- Knock 045: 一時コンテナでコマンド実行 03
+- Knock 046: 一時コンテナでコマンド実行 04
+- Knock 047: 一時コンテナでコマンド実行 05
+- Knock 048: 一時コンテナでコマンド実行 06
+- Knock 049: 一時コンテナでコマンド実行 07
+- Knock 050: 一時コンテナでコマンド実行 08
+- Knock 051: 一時コンテナでコマンド実行 09
+- Knock 052: 一時コンテナでコマンド実行 10
+- Knock 053: 一時コンテナでコマンド実行 11
+- Knock 054: 一時コンテナでコマンド実行 12
+- Knock 055: 一時コンテナでコマンド実行 13
+- Knock 056: 一時コンテナでコマンド実行 14
+- Knock 057: 一時コンテナでコマンド実行 15
+- Knock 058: 一時コンテナでコマンド実行 16
+- Knock 059: 一時コンテナでコマンド実行 17
+- Knock 060: 一時コンテナでコマンド実行 18
+- Knock 061: 一時コンテナでコマンド実行 19
+- Knock 062: 一時コンテナでコマンド実行 20
+- Knock 063: 一時コンテナでコマンド実行 21
+- Knock 064: 一時コンテナでコマンド実行 22
+- Knock 065: 一時コンテナでコマンド実行 23
+- Knock 066: 一時コンテナでコマンド実行 24
+- Knock 067: 一時コンテナでコマンド実行 25
+- Knock 068: 一時コンテナでコマンド実行 26
+- Knock 069: 一時コンテナでコマンド実行 27
+- Knock 070: 一時コンテナでコマンド実行 28
+- Knock 071: 一時コンテナでコマンド実行 29
+- Knock 072: 一時コンテナでコマンド実行 30
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## Docker慎重入門100本ノック v2
+- Knock 001: Dockerがあるか確認する
+- Knock 002: Dockerバージョンを見る
+- Knock 003: Docker daemon疎通確認
+- Knock 004: イメージ一覧を見る
+- Knock 005: コンテナ一覧を見る
+- Knock 006: 停止中も含めて見る
+- Knock 007: 容量を見る
+- Knock 008: Dockerfile用ディレクトリを作る
+- Knock 009: 最小Dockerfileを作る
+- Knock 010: イメージをビルドする
+- Knock 011: 作ったイメージを実行する
+- Knock 012: app.pyを作る
+- Knock 013: COPY入りDockerfileにする
+- Knock 014: 再ビルドする
+- Knock 015: 再実行する
+- Knock 016: ビルドコンテキストを確認
+- Knock 017: .dockerignoreを作る
+- Knock 018: タグ 0.3 でビルドする
+- Knock 019: タグ 0.4 でビルドする
+- Knock 020: タグ debug でビルドする
+- Knock 021: タグ cpu でビルドする
+- Knock 022: タグ slim でビルドする
+- Knock 023: タグ latest でビルドする
+- Knock 024: 環境変数 EXP=debug を渡す
+- Knock 025: 環境変数 SEED=42 を渡す
+- Knock 026: 環境変数 CUDA_VISIBLE_DEVICES=0 を渡す
+- Knock 027: 環境変数 LOG_LEVEL=INFO を渡す
+- Knock 028: 環境変数 PYTHONUNBUFFERED=1 を渡す
+- Knock 029: dataをマウントする
+- Knock 030: outputsをマウントする
+- Knock 031: logsをマウントする
+- Knock 032: configsをマウントする
+- Knock 033: tmpをマウントする
+- Knock 034: 実用確認: docker ps --format "table {{.N
+- Knock 035: 実用確認: docker images --format "table 
+- Knock 036: 実用確認: docker system df -v
+- Knock 037: 実用確認: docker stats --no-stream
+- Knock 038: 実用確認: docker inspect ubuntu100-pytho
+- Knock 039: 実用確認: docker history ubuntu100-pytho
+- Knock 040: 掃除の予行演習: container
+- Knock 041: 掃除の予行演習: image
+- Knock 042: 掃除の予行演習: builder
+- Knock 043: 掃除の予行演習: system
+- Knock 044: コンテナ実験名を付けて実行 01
+- Knock 045: コンテナ実験名を付けて実行 02
+- Knock 046: コンテナ実験名を付けて実行 03
+- Knock 047: コンテナ実験名を付けて実行 04
+- Knock 048: コンテナ実験名を付けて実行 05
+- Knock 049: コンテナ実験名を付けて実行 06
+- Knock 050: コンテナ実験名を付けて実行 07
+- Knock 051: コンテナ実験名を付けて実行 08
+- Knock 052: コンテナ実験名を付けて実行 09
+- Knock 053: コンテナ実験名を付けて実行 10
+- Knock 054: コンテナ実験名を付けて実行 11
+- Knock 055: コンテナ実験名を付けて実行 12
+- Knock 056: コンテナ実験名を付けて実行 13
+- Knock 057: コンテナ実験名を付けて実行 14
+- Knock 058: コンテナ実験名を付けて実行 15
+- Knock 059: コンテナ実験名を付けて実行 16
+- Knock 060: コンテナ実験名を付けて実行 17
+- Knock 061: コンテナ実験名を付けて実行 18
+- Knock 062: コンテナ実験名を付けて実行 19
+- Knock 063: コンテナ実験名を付けて実行 20
+- Knock 064: 総復習チェック 064
+- Knock 065: 総復習チェック 065
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## ネットワーク・SSH詳細100本ノック v1
+- Knock 001: IPアドレスを見る
+- Knock 002: IP行だけ抽出する
+- Knock 003: 経路を見る
+- Knock 004: DNS確認する
+- Knock 005: curlで疎通確認
+- Knock 006: example.comへpingする
+- Knock 007: example.comの名前解決を見る
+- Knock 008: github.comへpingする
+- Knock 009: github.comの名前解決を見る
+- Knock 010: google.comへpingする
+- Knock 011: google.comの名前解決を見る
+- Knock 012: openai.comへpingする
+- Knock 013: openai.comの名前解決を見る
+- Knock 014: python.orgへpingする
+- Knock 015: python.orgの名前解決を見る
+- Knock 016: pypi.orgへpingする
+- Knock 017: pypi.orgの名前解決を見る
+- Knock 018: ubuntu.comへpingする
+- Knock 019: ubuntu.comの名前解決を見る
+- Knock 020: cloudflare.comへpingする
+- Knock 021: cloudflare.comの名前解決を見る
+- Knock 022: 1.1.1.1へpingする
+- Knock 023: 1.1.1.1の名前解決を見る
+- Knock 024: 8.8.8.8へpingする
+- Knock 025: 8.8.8.8の名前解決を見る
+- Knock 026: https://example.comのヘッダを見る
+- Knock 027: https://example.comを保存する
+- Knock 028: https://github.comのヘッダを見る
+- Knock 029: https://github.comを保存する
+- Knock 030: https://pypi.orgのヘッダを見る
+- Knock 031: https://pypi.orgを保存する
+- Knock 032: https://www.python.orgのヘッダを見る
+- Knock 033: https://www.python.orgを保存する
+- Knock 034: https://ubuntu.comのヘッダを見る
+- Knock 035: https://ubuntu.comを保存する
+- Knock 036: ローカルのポート22使用状況を見る
+- Knock 037: ローカルのポート80使用状況を見る
+- Knock 038: ローカルのポート443使用状況を見る
+- Knock 039: ローカルのポート8888使用状況を見る
+- Knock 040: ローカルのポート6006使用状況を見る
+- Knock 041: ローカルのポート3000使用状況を見る
+- Knock 042: ローカルのポート5000使用状況を見る
+- Knock 043: ローカルのポート8080使用状況を見る
+- Knock 044: ローカルのポート11434使用状況を見る
+- Knock 045: ローカルのポート5432使用状況を見る
+- Knock 046: SSH接続の詳細ログを見る
+- Knock 047: SSH設定を表示する
+- Knock 048: SSH接続だけ試す
+- Knock 049: known_hostsを確認する
+- Knock 050: ssh configを開く
+- Knock 051: SSHオプション ConnectTimeout=5 を試す型
+- Knock 052: SSHオプション ServerAliveInterval=60 を試す型
+- Knock 053: SSHオプション ServerAliveCountMax=3 を試す型
+- Knock 054: SSHオプション BatchMode=yes を試す型
+- Knock 055: SSHオプション StrictHostKeyChecking=ask を試す型
+- Knock 056: SSHオプション ForwardAgent=no を試す型
+- Knock 057: SSHオプション Compression=yes を試す型
+- Knock 058: SSHオプション UserKnownHostsFile=~/.ssh/known_hosts を試す型
+- Knock 059: SSHオプション LogLevel=VERBOSE を試す型
+- Knock 060: SSHオプション IdentitiesOnly=yes を試す型
+- Knock 061: 総復習チェック 061
+- Knock 062: 総復習チェック 062
+- Knock 063: 総復習チェック 063
+- Knock 064: 総復習チェック 064
+- Knock 065: 総復習チェック 065
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## ネットワーク・SSH詳細100本ノック v2
+- Knock 001: IPアドレスを見る
+- Knock 002: IP行だけ抽出する
+- Knock 003: 経路を見る
+- Knock 004: DNS確認する
+- Knock 005: curlで疎通確認
+- Knock 006: Jupyter用ポートフォワードの型
+- Knock 007: TensorBoard用ポートフォワードの型
+- Knock 008: バックグラウンドSSHトンネル
+- Knock 009: SSHトンネルプロセスを探す
+- Knock 010: ポート転送中のローカルポート確認
+- Knock 011: curlでローカル転送先確認
+- Knock 012: Proxy環境変数を見る
+- Knock 013: curlで時間計測する
+- Knock 014: ダウンロード速度を見る
+- Knock 015: wgetで再開の型を見る
+- Knock 016: ポート8000のLISTEN確認
+- Knock 017: ポート8000へcurl確認
+- Knock 018: ポート8001のLISTEN確認
+- Knock 019: ポート8001へcurl確認
+- Knock 020: ポート8080のLISTEN確認
+- Knock 021: ポート8080へcurl確認
+- Knock 022: ポート8888のLISTEN確認
+- Knock 023: ポート8888へcurl確認
+- Knock 024: ポート6006のLISTEN確認
+- Knock 025: ポート6006へcurl確認
+- Knock 026: ポート5000のLISTEN確認
+- Knock 027: ポート5000へcurl確認
+- Knock 028: ポート3000のLISTEN確認
+- Knock 029: ポート3000へcurl確認
+- Knock 030: ポート7860のLISTEN確認
+- Knock 031: ポート7860へcurl確認
+- Knock 032: ポート11434のLISTEN確認
+- Knock 033: ポート11434へcurl確認
+- Knock 034: ポート9090のLISTEN確認
+- Knock 035: ポート9090へcurl確認
+- Knock 036: ポート5432のLISTEN確認
+- Knock 037: ポート5432へcurl確認
+- Knock 038: ポート6379のLISTEN確認
+- Knock 039: ポート6379へcurl確認
+- Knock 040: ポート27017のLISTEN確認
+- Knock 041: ポート27017へcurl確認
+- Knock 042: ポート22のLISTEN確認
+- Knock 043: ポート22へcurl確認
+- Knock 044: ポート80のLISTEN確認
+- Knock 045: ポート80へcurl確認
+- Knock 046: ポート443のLISTEN確認
+- Knock 047: ポート443へcurl確認
+- Knock 048: myserverへの経路を見る
+- Knock 049: gpu-serverへの経路を見る
+- Knock 050: localhostへの経路を見る
+- Knock 051: 127.0.0.1への経路を見る
+- Knock 052: example.comへの経路を見る
+- Knock 053: github.comへの経路を見る
+- Knock 054: pypi.orgへの経路を見る
+- Knock 055: internal.example.comへの経路を見る
+- Knock 056: 10.0.0.1への経路を見る
+- Knock 057: 192.168.1.1への経路を見る
+- Knock 058: SSH高度オプション型 -Y
+- Knock 059: SSH高度オプション型 -X
+- Knock 060: SSH高度オプション型 -A
+- Knock 061: SSH高度オプション型 -J jump_host
+- Knock 062: SSH高度オプション型 -p 22
+- Knock 063: SSH高度オプション型 -i ~/.ssh/id_ed25519
+- Knock 064: SSH高度オプション型 -L 8888:localhost:8888
+- Knock 065: SSH高度オプション型 -R 9000:localhost:9000
+- Knock 066: SSH高度オプション型 -N
+- Knock 067: SSH高度オプション型 -f
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## ジョブ管理・長時間実験100本ノック v1
+- Knock 001: tmuxがあるか確認する
+- Knock 002: nvidia-smi確認
+- Knock 003: Pythonプロセス確認
+- Knock 004: CPU/メモリ確認
+- Knock 005: ディスク確認
+- Knock 006: tmuxセッションを作る
+- Knock 007: tmux一覧を見る
+- Knock 008: tmuxへ戻る
+- Knock 009: nohupで実行する
+- Knock 010: nohupログを見る
+- Knock 011: jobsを見る
+- Knock 012: プロセスを探す
+- Knock 013: watchで監視する
+- Knock 014: GPUをwatchする
+- Knock 015: ログ末尾を見る
+- Knock 016: ダミージョブ01を作る
+- Knock 017: ダミージョブ01のログを見る
+- Knock 018: ダミージョブ02を作る
+- Knock 019: ダミージョブ02のログを見る
+- Knock 020: ダミージョブ03を作る
+- Knock 021: ダミージョブ03のログを見る
+- Knock 022: ダミージョブ04を作る
+- Knock 023: ダミージョブ04のログを見る
+- Knock 024: ダミージョブ05を作る
+- Knock 025: ダミージョブ05のログを見る
+- Knock 026: ダミージョブ06を作る
+- Knock 027: ダミージョブ06のログを見る
+- Knock 028: ダミージョブ07を作る
+- Knock 029: ダミージョブ07のログを見る
+- Knock 030: ダミージョブ08を作る
+- Knock 031: ダミージョブ08のログを見る
+- Knock 032: ダミージョブ09を作る
+- Knock 033: ダミージョブ09のログを見る
+- Knock 034: ダミージョブ10を作る
+- Knock 035: ダミージョブ10のログを見る
+- Knock 036: ダミージョブ11を作る
+- Knock 037: ダミージョブ11のログを見る
+- Knock 038: ダミージョブ12を作る
+- Knock 039: ダミージョブ12のログを見る
+- Knock 040: ダミージョブ13を作る
+- Knock 041: ダミージョブ13のログを見る
+- Knock 042: ダミージョブ14を作る
+- Knock 043: ダミージョブ14のログを見る
+- Knock 044: ダミージョブ15を作る
+- Knock 045: ダミージョブ15のログを見る
+- Knock 046: ダミージョブ16を作る
+- Knock 047: ダミージョブ16のログを見る
+- Knock 048: ダミージョブ17を作る
+- Knock 049: ダミージョブ17のログを見る
+- Knock 050: ダミージョブ18を作る
+- Knock 051: ダミージョブ18のログを見る
+- Knock 052: ダミージョブ19を作る
+- Knock 053: ダミージョブ19のログを見る
+- Knock 054: ダミージョブ20を作る
+- Knock 055: ダミージョブ20のログを見る
+- Knock 056: Slurm有無確認
+- Knock 057: キューを見る
+- Knock 058: ノード情報を見る
+- Knock 059: 自分のジョブを見る
+- Knock 060: SBATCHスクリプト雛形を作る
+- Knock 061: SBATCH投入形を見る
+- Knock 062: 総復習チェック 062
+- Knock 063: 総復習チェック 063
+- Knock 064: 総復習チェック 064
+- Knock 065: 総復習チェック 065
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## ジョブ管理・長時間実験100本ノック v2
+- Knock 001: tmuxがあるか確認する
+- Knock 002: nvidia-smi確認
+- Knock 003: Pythonプロセス確認
+- Knock 004: CPU/メモリ確認
+- Knock 005: ディスク確認
+- Knock 006: 実験監視スクリプトを作る
+- Knock 007: ジョブ一覧サマリを作る
+- Knock 008: メタ情報保存スクリプト
+- Knock 009: GPU空き確認ワンライナー
+- Knock 010: 自分のGPUプロセス候補
+- Knock 011: 優先度を下げて実行する型
+- Knock 012: ioniceでI/O優先度を下げる型
+- Knock 013: timeoutを使う
+- Knock 014: リトライの型
+- Knock 015: ロックファイルの型
+- Knock 016: 実験01のメタ保存
+- Knock 017: 実験01のログ監視
+- Knock 018: 実験02のメタ保存
+- Knock 019: 実験02のログ監視
+- Knock 020: 実験03のメタ保存
+- Knock 021: 実験03のログ監視
+- Knock 022: 実験04のメタ保存
+- Knock 023: 実験04のログ監視
+- Knock 024: 実験05のメタ保存
+- Knock 025: 実験05のログ監視
+- Knock 026: 実験06のメタ保存
+- Knock 027: 実験06のログ監視
+- Knock 028: 実験07のメタ保存
+- Knock 029: 実験07のログ監視
+- Knock 030: 実験08のメタ保存
+- Knock 031: 実験08のログ監視
+- Knock 032: 実験09のメタ保存
+- Knock 033: 実験09のログ監視
+- Knock 034: 実験10のメタ保存
+- Knock 035: 実験10のログ監視
+- Knock 036: 実験11のメタ保存
+- Knock 037: 実験11のログ監視
+- Knock 038: 実験12のメタ保存
+- Knock 039: 実験12のログ監視
+- Knock 040: 実験13のメタ保存
+- Knock 041: 実験13のログ監視
+- Knock 042: 実験14のメタ保存
+- Knock 043: 実験14のログ監視
+- Knock 044: 実験15のメタ保存
+- Knock 045: 実験15のログ監視
+- Knock 046: 実験16のメタ保存
+- Knock 047: 実験16のログ監視
+- Knock 048: 実験17のメタ保存
+- Knock 049: 実験17のログ監視
+- Knock 050: 実験18のメタ保存
+- Knock 051: 実験18のログ監視
+- Knock 052: 実験19のメタ保存
+- Knock 053: 実験19のログ監視
+- Knock 054: 実験20のメタ保存
+- Knock 055: 実験20のログ監視
+- Knock 056: 実験21のメタ保存
+- Knock 057: 実験21のログ監視
+- Knock 058: 実験22のメタ保存
+- Knock 059: 実験22のログ監視
+- Knock 060: 実験23のメタ保存
+- Knock 061: 実験23のログ監視
+- Knock 062: 実験24のメタ保存
+- Knock 063: 実験24のログ監視
+- Knock 064: 実験25のメタ保存
+- Knock 065: 実験25のログ監視
+- Knock 066: 実験26のメタ保存
+- Knock 067: 実験26のログ監視
+- Knock 068: 実験27のメタ保存
+- Knock 069: 実験27のログ監視
+- Knock 070: 実験28のメタ保存
+- Knock 071: 実験28のログ監視
+- Knock 072: 実験29のメタ保存
+- Knock 073: 実験29のログ監視
+- Knock 074: 実験30のメタ保存
+- Knock 075: 実験30のログ監視
+- Knock 076: Slurm GPUジョブ雛形
+- Knock 077: Slurm配列ジョブ雛形
+- Knock 078: Slurmキャンセル型
+- Knock 079: Slurmログ名の意味をメモ
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## 圧縮・バックアップ・cron 100本ノック v1
+- Knock 001: tarがあるか確認
+- Knock 002: 練習ディレクトリを作る
+- Knock 003: サンプルファイルを作る
+- Knock 004: 容量を見る
+- Knock 005: ファイル一覧を見る
+- Knock 006: tar.gzを作る
+- Knock 007: tar.gzの中身を見る
+- Knock 008: tar.gzを展開する
+- Knock 009: zipを作る
+- Knock 010: zip中身を見る
+- Knock 011: zipを展開する
+- Knock 012: gzipで1ファイル圧縮
+- Knock 013: gzipを展開
+- Knock 014: バックアップ名に日付を入れる
+- Knock 015: sha256を計算
+- Knock 016: dataをtar.gz化する
+- Knock 017: dataアーカイブの中身を見る
+- Knock 018: outputsをtar.gz化する
+- Knock 019: outputsアーカイブの中身を見る
+- Knock 020: logsをtar.gz化する
+- Knock 021: logsアーカイブの中身を見る
+- Knock 022: backupをtar.gz化する
+- Knock 023: backupアーカイブの中身を見る
+- Knock 024: tmpをtar.gz化する
+- Knock 025: tmpアーカイブの中身を見る
+- Knock 026: *.txtを探す
+- Knock 027: *.logを探す
+- Knock 028: *.csvを探す
+- Knock 029: *.jsonlを探す
+- Knock 030: *.yamlを探す
+- Knock 031: *.pyを探す
+- Knock 032: *.mdを探す
+- Knock 033: *.shを探す
+- Knock 034: *.tar.gzを探す
+- Knock 035: *.zipを探す
+- Knock 036: 1日より古いログを探す
+- Knock 037: 1日より古いバックアップを探す
+- Knock 038: 3日より古いログを探す
+- Knock 039: 3日より古いバックアップを探す
+- Knock 040: 7日より古いログを探す
+- Knock 041: 7日より古いバックアップを探す
+- Knock 042: 14日より古いログを探す
+- Knock 043: 14日より古いバックアップを探す
+- Knock 044: 30日より古いログを探す
+- Knock 045: 30日より古いバックアップを探す
+- Knock 046: 60日より古いログを探す
+- Knock 047: 60日より古いバックアップを探す
+- Knock 048: 90日より古いログを探す
+- Knock 049: 90日より古いバックアップを探す
+- Knock 050: 180日より古いログを探す
+- Knock 051: 180日より古いバックアップを探す
+- Knock 052: 365日より古いログを探す
+- Knock 053: 365日より古いバックアップを探す
+- Knock 054: 730日より古いログを探す
+- Knock 055: 730日より古いバックアップを探す
+- Knock 056: crontab一覧を見る
+- Knock 057: cron形式をメモする
+- Knock 058: 毎日3時の例を書く
+- Knock 059: 毎週日曜の例を書く
+- Knock 060: cron用PATH問題をメモ
+- Knock 061: 総復習チェック 061
+- Knock 062: 総復習チェック 062
+- Knock 063: 総復習チェック 063
+- Knock 064: 総復習チェック 064
+- Knock 065: 総復習チェック 065
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
+
+## 圧縮・バックアップ・cron 100本ノック v2
+- Knock 001: tarがあるか確認
+- Knock 002: 練習ディレクトリを作る
+- Knock 003: サンプルファイルを作る
+- Knock 004: 容量を見る
+- Knock 005: ファイル一覧を見る
+- Knock 006: バックアップスクリプトを作る
+- Knock 007: バックアップを実行する
+- Knock 008: バックアップ検証スクリプトを作る
+- Knock 009: 最新バックアップを検証する
+- Knock 010: 復元スクリプトを作る
+- Knock 011: 最新バックアップを復元する
+- Knock 012: 古いバックアップ削除dry-run
+- Knock 013: 削除を確認付きにする
+- Knock 014: cron投入用ファイルを作る
+- Knock 015: cron投入コマンドを表示
+- Knock 016: data用バックアップ実行
+- Knock 017: data用バックアップ検証
+- Knock 018: outputs用バックアップ実行
+- Knock 019: outputs用バックアップ検証
+- Knock 020: logs用バックアップ実行
+- Knock 021: logs用バックアップ検証
+- Knock 022: configs用バックアップ実行
+- Knock 023: configs用バックアップ検証
+- Knock 024: src用バックアップ実行
+- Knock 025: src用バックアップ検証
+- Knock 026: notes用バックアップ実行
+- Knock 027: notes用バックアップ検証
+- Knock 028: experiments用バックアップ実行
+- Knock 029: experiments用バックアップ検証
+- Knock 030: results用バックアップ実行
+- Knock 031: results用バックアップ検証
+- Knock 032: checkpoints用バックアップ実行
+- Knock 033: checkpoints用バックアップ検証
+- Knock 034: reports用バックアップ実行
+- Knock 035: reports用バックアップ検証
+- Knock 036: cron例: 5分ごと
+- Knock 037: cron例: 毎時
+- Knock 038: cron例: 毎日深夜
+- Knock 039: cron例: 平日朝
+- Knock 040: cron例: 毎週日曜
+- Knock 041: cron例: 毎月1日
+- Knock 042: cron例: 月金
+- Knock 043: cron例: 年1回
+- Knock 044: cron例: 起動時
+- Knock 045: cron例: 毎日2回
+- Knock 046: systemdユーザサービス例を作る
+- Knock 047: systemd timer例を作る
+- Knock 048: ユーザtimer一覧を見る
+- Knock 049: journalctlの型を見る
+- Knock 050: バックアップ世代01を作る
+- Knock 051: バックアップ世代02を作る
+- Knock 052: バックアップ世代03を作る
+- Knock 053: バックアップ世代04を作る
+- Knock 054: バックアップ世代05を作る
+- Knock 055: バックアップ世代06を作る
+- Knock 056: バックアップ世代07を作る
+- Knock 057: バックアップ世代08を作る
+- Knock 058: バックアップ世代09を作る
+- Knock 059: バックアップ世代10を作る
+- Knock 060: バックアップ世代11を作る
+- Knock 061: バックアップ世代12を作る
+- Knock 062: バックアップ世代13を作る
+- Knock 063: バックアップ世代14を作る
+- Knock 064: バックアップ世代15を作る
+- Knock 065: バックアップ世代16を作る
+- Knock 066: 総復習チェック 066
+- Knock 067: 総復習チェック 067
+- Knock 068: 総復習チェック 068
+- Knock 069: 総復習チェック 069
+- Knock 070: 総復習チェック 070
+- Knock 071: 総復習チェック 071
+- Knock 072: 総復習チェック 072
+- Knock 073: 総復習チェック 073
+- Knock 074: 総復習チェック 074
+- Knock 075: 総復習チェック 075
+- Knock 076: 総復習チェック 076
+- Knock 077: 総復習チェック 077
+- Knock 078: 総復習チェック 078
+- Knock 079: 総復習チェック 079
+- Knock 080: 総復習チェック 080
+- Knock 081: 総復習チェック 081
+- Knock 082: 総復習チェック 082
+- Knock 083: 総復習チェック 083
+- Knock 084: 総復習チェック 084
+- Knock 085: 総復習チェック 085
+- Knock 086: 総復習チェック 086
+- Knock 087: 総復習チェック 087
+- Knock 088: 総復習チェック 088
+- Knock 089: 総復習チェック 089
+- Knock 090: 総復習チェック 090
+- Knock 091: 総復習チェック 091
+- Knock 092: 総復習チェック 092
+- Knock 093: 総復習チェック 093
+- Knock 094: 総復習チェック 094
+- Knock 095: 総復習チェック 095
+- Knock 096: 総復習チェック 096
+- Knock 097: 総復習チェック 097
+- Knock 098: 総復習チェック 098
+- Knock 099: 総復習チェック 099
+- Knock 100: 総復習チェック 100
