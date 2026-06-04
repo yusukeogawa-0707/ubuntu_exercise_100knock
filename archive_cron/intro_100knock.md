@@ -1,11 +1,11 @@
-# ジョブ管理・長時間実験100本ノック — v1 入門編
+# 圧縮・バックアップ・cron 100本ノック — 入門編
 
 ## 位置づけ
 
-tmux/nohup/watch/Slurm雛形でサーバ実験を運用する。
+tar/zip/バックアップ検証/定期実行の型を扱う。
 
-- v1入門編: まず壊さず、意味を確認しながら手を動かす。
-- v2応用・実践編: 研究実務で使う形に近づける。
+- 入門編: まず壊さず、意味を確認しながら手を動かす。
+- 実践編: 研究実務で使う形に近づける。
 
 ## 使い方
 
@@ -15,744 +15,736 @@ tmux/nohup/watch/Slurm雛形でサーバ実験を運用する。
 
 注意: `myserver`, `your_username`, `git@example.com:USER/REPO.git` などは仮の名前です。実環境に合わせて置き換えてください。
 
-## Knock 001: tmuxがあるか確認する
+## Knock 001: tarがあるか確認
 
-**目的**: 長時間作業ツールの有無を確認する。
-
-````bash
-command -v tmux || echo "tmux not installed"
-````
-**解説**: SSHが切れても作業を残すにはtmuxが便利です。
-
-**確認ポイント**: パスまたは未導入表示。
-
-
-## Knock 002: nvidia-smi確認
-
-**目的**: GPU状況を確認する。
+**目的**: 圧縮・展開ツールを確認する。
 
 ````bash
-command -v nvidia-smi && nvidia-smi || echo "no nvidia-smi"
+tar --version | head -n 1
 ````
-**解説**: GPUサーバかどうかも分かります。
+**解説**: Linuxではtar.gzが頻出です。
 
-**確認ポイント**: GPU表または未導入表示。
+**確認ポイント**: tarのバージョンが出る。
 
 
-## Knock 003: Pythonプロセス確認
+## Knock 002: 練習ディレクトリを作る
 
-**目的**: 実験プロセスを探す。
+**目的**: 安全な練習場所を作る。
 
 ````bash
-pgrep -af python || true
+mkdir -p ~/archive100knock/{data,outputs,logs,backup,tmp} && cd ~/archive100knock
 ````
-**解説**: サーバで実験が動いているか確認します。
+**解説**: 圧縮や削除を扱うので隔離します。
+
+**確認ポイント**: pwdで確認。
+
+
+## Knock 003: サンプルファイルを作る
+
+**目的**: 圧縮対象を用意する。
+
+````bash
+for i in 1 2 3; do echo "sample $i" > data/file_$i.txt; done
+````
+**解説**: 小さいファイルで練習します。
+
+**確認ポイント**: dataにファイルができる。
+
+
+## Knock 004: 容量を見る
+
+**目的**: 圧縮前の容量を見る。
+
+````bash
+du -sh data
+````
+**解説**: 圧縮やバックアップ前には容量確認します。
+
+**確認ポイント**: 容量が出る。
+
+
+## Knock 005: ファイル一覧を見る
+
+**目的**: 対象ファイルを確認する。
+
+````bash
+find data -type f -exec ls -lh {} \;
+````
+**解説**: 圧縮や削除前の確認です。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 006: tar.gzを作る
+
+**目的**: dataをtar.gzに固める。
+
+````bash
+tar -czf backup/data.tar.gz data
+````
+**解説**: `c`作成、`z`gzip、`f`ファイル指定です。
+
+**確認ポイント**: backupにtar.gzができる。
+
+
+## Knock 007: tar.gzの中身を見る
+
+**目的**: 展開せず中身を見る。
+
+````bash
+tar -tzf backup/data.tar.gz
+````
+**解説**: 展開前に中身確認する癖が重要です。
+
+**確認ポイント**: data/file_*.txtが出る。
+
+
+## Knock 008: tar.gzを展開する
+
+**目的**: アーカイブを展開する。
+
+````bash
+mkdir -p tmp/extract && tar -xzf backup/data.tar.gz -C tmp/extract
+````
+**解説**: `-C` で展開先を指定します。
+
+**確認ポイント**: tmp/extract/dataができる。
+
+
+## Knock 009: zipを作る
+
+**目的**: zip形式で圧縮する。
+
+````bash
+zip -r backup/data.zip data
+````
+**解説**: Windows受け渡しではzipが便利です。
+
+**確認ポイント**: data.zipができる。
+
+
+## Knock 010: zip中身を見る
+
+**目的**: zipを展開せず中身確認する。
+
+````bash
+unzip -l backup/data.zip
+````
+**解説**: 受け取ったzipを開く前に確認できます。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 011: zipを展開する
+
+**目的**: zipを展開する。
+
+````bash
+mkdir -p tmp/unzip && unzip backup/data.zip -d tmp/unzip
+````
+**解説**: `-d` で展開先を指定します。
+
+**確認ポイント**: tmp/unzip/dataができる。
+
+
+## Knock 012: gzipで1ファイル圧縮
+
+**目的**: 単一ファイルをgzip圧縮する。
+
+````bash
+cp data/file_1.txt tmp/file_1.txt && gzip tmp/file_1.txt
+````
+**解説**: gzipは単一ファイルを `.gz` にします。
+
+**確認ポイント**: file_1.txt.gzができる。
+
+
+## Knock 013: gzipを展開
+
+**目的**: gzファイルを戻す。
+
+````bash
+gunzip tmp/file_1.txt.gz
+````
+**解説**: gunzipで元ファイルに戻ります。
+
+**確認ポイント**: file_1.txtが戻る。
+
+
+## Knock 014: バックアップ名に日付を入れる
+
+**目的**: 日付付きバックアップを作る。
+
+````bash
+tar -czf backup/data_$(date +%Y%m%d).tar.gz data
+````
+**解説**: 上書き事故を防げます。
+
+**確認ポイント**: 日付入りファイルができる。
+
+
+## Knock 015: sha256を計算
+
+**目的**: ファイルのハッシュを作る。
+
+````bash
+sha256sum backup/data.tar.gz > backup/data.tar.gz.sha256
+````
+**解説**: 転送後の破損確認に使えます。
+
+**確認ポイント**: sha256ファイルができる。
+
+
+## Knock 016: dataをtar.gz化する
+
+**目的**: ディレクトリを圧縮する。
+
+````bash
+tar -czf backup/data_$(date +%Y%m%d_%H%M%S).tar.gz data
+````
+**解説**: 対象ごとにバックアップを分ける練習です。
+
+**確認ポイント**: backup/data_*.tar.gzができる。
+
+
+## Knock 017: dataアーカイブの中身を見る
+
+**目的**: 圧縮結果を確認する。
+
+````bash
+ls -t backup/data_*.tar.gz | head -n 1 | xargs tar -tzf | head
+````
+**解説**: 作ったら必ず中身を見ます。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 018: outputsをtar.gz化する
+
+**目的**: ディレクトリを圧縮する。
+
+````bash
+tar -czf backup/outputs_$(date +%Y%m%d_%H%M%S).tar.gz outputs
+````
+**解説**: 対象ごとにバックアップを分ける練習です。
+
+**確認ポイント**: backup/outputs_*.tar.gzができる。
+
+
+## Knock 019: outputsアーカイブの中身を見る
+
+**目的**: 圧縮結果を確認する。
+
+````bash
+ls -t backup/outputs_*.tar.gz | head -n 1 | xargs tar -tzf | head
+````
+**解説**: 作ったら必ず中身を見ます。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 020: logsをtar.gz化する
+
+**目的**: ディレクトリを圧縮する。
+
+````bash
+tar -czf backup/logs_$(date +%Y%m%d_%H%M%S).tar.gz logs
+````
+**解説**: 対象ごとにバックアップを分ける練習です。
+
+**確認ポイント**: backup/logs_*.tar.gzができる。
+
+
+## Knock 021: logsアーカイブの中身を見る
+
+**目的**: 圧縮結果を確認する。
+
+````bash
+ls -t backup/logs_*.tar.gz | head -n 1 | xargs tar -tzf | head
+````
+**解説**: 作ったら必ず中身を見ます。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 022: backupをtar.gz化する
+
+**目的**: ディレクトリを圧縮する。
+
+````bash
+tar -czf backup/backup_$(date +%Y%m%d_%H%M%S).tar.gz backup
+````
+**解説**: 対象ごとにバックアップを分ける練習です。
+
+**確認ポイント**: backup/backup_*.tar.gzができる。
+
+
+## Knock 023: backupアーカイブの中身を見る
+
+**目的**: 圧縮結果を確認する。
+
+````bash
+ls -t backup/backup_*.tar.gz | head -n 1 | xargs tar -tzf | head
+````
+**解説**: 作ったら必ず中身を見ます。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 024: tmpをtar.gz化する
+
+**目的**: ディレクトリを圧縮する。
+
+````bash
+tar -czf backup/tmp_$(date +%Y%m%d_%H%M%S).tar.gz tmp
+````
+**解説**: 対象ごとにバックアップを分ける練習です。
+
+**確認ポイント**: backup/tmp_*.tar.gzができる。
+
+
+## Knock 025: tmpアーカイブの中身を見る
+
+**目的**: 圧縮結果を確認する。
+
+````bash
+ls -t backup/tmp_*.tar.gz | head -n 1 | xargs tar -tzf | head
+````
+**解説**: 作ったら必ず中身を見ます。
+
+**確認ポイント**: ファイル一覧が出る。
+
+
+## Knock 026: *.txtを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.txt" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 027: *.logを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.log" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 028: *.csvを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.csv" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 029: *.jsonlを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.jsonl" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 030: *.yamlを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.yaml" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 031: *.pyを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.py" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 032: *.mdを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.md" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 033: *.shを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.sh" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 034: *.tar.gzを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.tar.gz" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 035: *.zipを探す
+
+**目的**: 特定拡張子を探す。
+
+````bash
+find . -name "*.zip" -print
+````
+**解説**: バックアップ対象や掃除対象を探します。
+
+**確認ポイント**: 該当ファイルが表示される。
+
+
+## Knock 036: 1日より古いログを探す
+
+**目的**: 古いファイルを探す。
+
+````bash
+find . -name "*.log" -mtime +1 -print
+````
+**解説**: 削除前にまず表示だけします。
 
 **確認ポイント**: 該当があれば表示。
 
 
-## Knock 004: CPU/メモリ確認
+## Knock 037: 1日より古いバックアップを探す
 
-**目的**: メモリとCPU数を見る。
-
-````bash
-free -h && nproc
-````
-**解説**: ジョブの重さを考える基本情報です。
-
-**確認ポイント**: メモリとコア数が出る。
-
-
-## Knock 005: ディスク確認
-
-**目的**: 出力先の空き容量を見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-df -h .
+find backup -type f -mtime +1 -print
 ````
-**解説**: 実験前に容量を確認します。
-
-**確認ポイント**: 空き容量が出る。
-
-
-## Knock 006: tmuxセッションを作る
-
-**目的**: 名前付きtmuxを作る。
-
-````bash
-tmux new -s exp001
-````
-**解説**: 長時間実験は名前を付けて管理します。
-
-**確認ポイント**: tmux画面に入る。
-
-
-## Knock 007: tmux一覧を見る
-
-**目的**: tmuxセッション一覧を表示する。
-
-````bash
-tmux ls
-````
-**解説**: detach後の再接続に必要です。
-
-**確認ポイント**: セッション一覧が出る。
-
-
-## Knock 008: tmuxへ戻る
-
-**目的**: 既存セッションへ戻る。
-
-````bash
-tmux attach -t exp001
-````
-**解説**: SSH再接続後に作業へ復帰できます。
-
-**確認ポイント**: exp001へ入る。
-
-
-## Knock 009: nohupで実行する
-
-**目的**: 切断に強い実行をする。
-
-````bash
-nohup python3 -c "import time; print("start"); time.sleep(3); print("end")" > nohup_test.log 2>&1 &
-````
-**解説**: 短いダミー処理でnohupを体験します。
-
-**確認ポイント**: バックグラウンドPIDが出る。
-
-
-## Knock 010: nohupログを見る
-
-**目的**: ログを追う。
-
-````bash
-tail -f nohup_test.log
-````
-**解説**: 長時間実験の基本監視です。
-
-**確認ポイント**: start/endが見える。
-
-
-## Knock 011: jobsを見る
-
-**目的**: 現在シェルのバックグラウンドジョブを見る。
-
-````bash
-jobs
-````
-**解説**: 同じシェルから起動したものだけ見えます。
-
-**確認ポイント**: ジョブ一覧が出る。
-
-
-## Knock 012: プロセスを探す
-
-**目的**: 実行中プロセスを探す。
-
-````bash
-pgrep -af "time.sleep" || true
-````
-**解説**: jobsで見えない時はpgrepを使います。
+**解説**: 保持期間を決めて整理する準備です。
 
 **確認ポイント**: 該当があれば表示。
 
 
-## Knock 013: watchで監視する
+## Knock 038: 3日より古いログを探す
 
-**目的**: 2秒ごとにコマンド実行する。
-
-````bash
-watch -n 2 date
-````
-**解説**: nvidia-smi監視などに使います。
-
-**確認ポイント**: Ctrl+Cで終了。
-
-
-## Knock 014: GPUをwatchする
-
-**目的**: GPU状況を定期表示する。
+**目的**: 古いファイルを探す。
 
 ````bash
-watch -n 2 nvidia-smi
+find . -name "*.log" -mtime +3 -print
 ````
-**解説**: GPUサーバで非常に便利です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: Ctrl+Cで終了。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 015: ログ末尾を見る
+## Knock 039: 3日より古いバックアップを探す
 
-**目的**: 最新ログを確認する。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 50 nohup_test.log
+find backup -type f -mtime +3 -print
 ````
-**解説**: tail -fより静かに確認できます。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: 末尾50行が出る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 016: ダミージョブ01を作る
+## Knock 040: 7日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_01 && nohup bash -lc "echo start_01; sleep 1; echo done_01" > jobs/exp_01/run.log 2>&1 &
+find . -name "*.log" -mtime +7 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_01/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 017: ダミージョブ01のログを見る
+## Knock 041: 7日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_01/run.log
+find backup -type f -mtime +7 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 018: ダミージョブ02を作る
+## Knock 042: 14日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_02 && nohup bash -lc "echo start_02; sleep 1; echo done_02" > jobs/exp_02/run.log 2>&1 &
+find . -name "*.log" -mtime +14 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_02/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 019: ダミージョブ02のログを見る
+## Knock 043: 14日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_02/run.log
+find backup -type f -mtime +14 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 020: ダミージョブ03を作る
+## Knock 044: 30日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_03 && nohup bash -lc "echo start_03; sleep 1; echo done_03" > jobs/exp_03/run.log 2>&1 &
+find . -name "*.log" -mtime +30 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_03/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 021: ダミージョブ03のログを見る
+## Knock 045: 30日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_03/run.log
+find backup -type f -mtime +30 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 022: ダミージョブ04を作る
+## Knock 046: 60日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_04 && nohup bash -lc "echo start_04; sleep 1; echo done_04" > jobs/exp_04/run.log 2>&1 &
+find . -name "*.log" -mtime +60 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_04/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 023: ダミージョブ04のログを見る
+## Knock 047: 60日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_04/run.log
+find backup -type f -mtime +60 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 024: ダミージョブ05を作る
+## Knock 048: 90日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_05 && nohup bash -lc "echo start_05; sleep 1; echo done_05" > jobs/exp_05/run.log 2>&1 &
+find . -name "*.log" -mtime +90 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_05/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 025: ダミージョブ05のログを見る
+## Knock 049: 90日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_05/run.log
+find backup -type f -mtime +90 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 026: ダミージョブ06を作る
+## Knock 050: 180日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_06 && nohup bash -lc "echo start_06; sleep 1; echo done_06" > jobs/exp_06/run.log 2>&1 &
+find . -name "*.log" -mtime +180 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_06/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 027: ダミージョブ06のログを見る
+## Knock 051: 180日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_06/run.log
+find backup -type f -mtime +180 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 028: ダミージョブ07を作る
+## Knock 052: 365日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_07 && nohup bash -lc "echo start_07; sleep 1; echo done_07" > jobs/exp_07/run.log 2>&1 &
+find . -name "*.log" -mtime +365 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_07/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 029: ダミージョブ07のログを見る
+## Knock 053: 365日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_07/run.log
+find backup -type f -mtime +365 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 030: ダミージョブ08を作る
+## Knock 054: 730日より古いログを探す
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 古いファイルを探す。
 
 ````bash
-mkdir -p jobs/exp_08 && nohup bash -lc "echo start_08; sleep 1; echo done_08" > jobs/exp_08/run.log 2>&1 &
+find . -name "*.log" -mtime +730 -print
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: 削除前にまず表示だけします。
 
-**確認ポイント**: jobs/exp_08/run.logを見る。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 031: ダミージョブ08のログを見る
+## Knock 055: 730日より古いバックアップを探す
 
-**目的**: ジョブごとのログを見る。
+**目的**: 古いバックアップを探す。
 
 ````bash
-tail -n 20 jobs/exp_08/run.log
+find backup -type f -mtime +730 -print
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
+**解説**: 保持期間を決めて整理する準備です。
 
-**確認ポイント**: start/doneが見える。
+**確認ポイント**: 該当があれば表示。
 
 
-## Knock 032: ダミージョブ09を作る
+## Knock 056: crontab一覧を見る
 
-**目的**: 短いバックグラウンドジョブを起動する。
+**目的**: 自分の定期実行設定を見る。
 
 ````bash
-mkdir -p jobs/exp_09 && nohup bash -lc "echo start_09; sleep 1; echo done_09" > jobs/exp_09/run.log 2>&1 &
+crontab -l 2>/dev/null || echo "no crontab"
 ````
-**解説**: 実験ジョブの最小模型です。
+**解説**: いきなり編集せず、まず確認します。
 
-**確認ポイント**: jobs/exp_09/run.logを見る。
+**確認ポイント**: 設定またはno crontab。
 
 
-## Knock 033: ダミージョブ09のログを見る
+## Knock 057: cron形式をメモする
 
-**目的**: ジョブごとのログを見る。
+**目的**: cronの5フィールドを覚える。
 
 ````bash
-tail -n 20 jobs/exp_09/run.log
+echo "# 分 時 日 月 曜日 コマンド" > cron_format.txt
 ````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 034: ダミージョブ10を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_10 && nohup bash -lc "echo start_10; sleep 1; echo done_10" > jobs/exp_10/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_10/run.logを見る。
-
-
-## Knock 035: ダミージョブ10のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_10/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 036: ダミージョブ11を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_11 && nohup bash -lc "echo start_11; sleep 1; echo done_11" > jobs/exp_11/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_11/run.logを見る。
-
-
-## Knock 037: ダミージョブ11のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_11/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 038: ダミージョブ12を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_12 && nohup bash -lc "echo start_12; sleep 1; echo done_12" > jobs/exp_12/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_12/run.logを見る。
-
-
-## Knock 039: ダミージョブ12のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_12/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 040: ダミージョブ13を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_13 && nohup bash -lc "echo start_13; sleep 1; echo done_13" > jobs/exp_13/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_13/run.logを見る。
-
-
-## Knock 041: ダミージョブ13のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_13/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 042: ダミージョブ14を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_14 && nohup bash -lc "echo start_14; sleep 1; echo done_14" > jobs/exp_14/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_14/run.logを見る。
-
-
-## Knock 043: ダミージョブ14のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_14/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 044: ダミージョブ15を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_15 && nohup bash -lc "echo start_15; sleep 1; echo done_15" > jobs/exp_15/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_15/run.logを見る。
-
-
-## Knock 045: ダミージョブ15のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_15/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 046: ダミージョブ16を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_16 && nohup bash -lc "echo start_16; sleep 1; echo done_16" > jobs/exp_16/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_16/run.logを見る。
-
-
-## Knock 047: ダミージョブ16のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_16/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 048: ダミージョブ17を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_17 && nohup bash -lc "echo start_17; sleep 1; echo done_17" > jobs/exp_17/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_17/run.logを見る。
-
-
-## Knock 049: ダミージョブ17のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_17/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 050: ダミージョブ18を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_18 && nohup bash -lc "echo start_18; sleep 1; echo done_18" > jobs/exp_18/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_18/run.logを見る。
-
-
-## Knock 051: ダミージョブ18のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_18/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 052: ダミージョブ19を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_19 && nohup bash -lc "echo start_19; sleep 1; echo done_19" > jobs/exp_19/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_19/run.logを見る。
-
-
-## Knock 053: ダミージョブ19のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_19/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 054: ダミージョブ20を作る
-
-**目的**: 短いバックグラウンドジョブを起動する。
-
-````bash
-mkdir -p jobs/exp_20 && nohup bash -lc "echo start_20; sleep 1; echo done_20" > jobs/exp_20/run.log 2>&1 &
-````
-**解説**: 実験ジョブの最小模型です。
-
-**確認ポイント**: jobs/exp_20/run.logを見る。
-
-
-## Knock 055: ダミージョブ20のログを見る
-
-**目的**: ジョブごとのログを見る。
-
-````bash
-tail -n 20 jobs/exp_20/run.log
-````
-**解説**: 実験名とログ場所を対応させる練習です。
-
-**確認ポイント**: start/doneが見える。
-
-
-## Knock 056: Slurm有無確認
-
-**目的**: ジョブスケジューラの有無を確認する。
-
-````bash
-command -v sbatch || echo "slurm not available"
-````
-**解説**: 会社・研究所クラスタではSlurmの場合があります。
-
-**確認ポイント**: パスまたは未導入表示。
-
-
-## Knock 057: キューを見る
-
-**目的**: Slurmのジョブ一覧を見る。
-
-````bash
-squeue 2>/dev/null || echo "squeue unavailable"
-````
-**解説**: Slurm環境だけで動きます。
-
-**確認ポイント**: キューまたは不可表示。
-
-
-## Knock 058: ノード情報を見る
-
-**目的**: クラスタのノード状態を見る。
-
-````bash
-sinfo 2>/dev/null || echo "sinfo unavailable"
-````
-**解説**: 空き状況確認に使います。
-
-**確認ポイント**: ノード表または不可表示。
-
-
-## Knock 059: 自分のジョブを見る
-
-**目的**: 自分のSlurmジョブだけ見る。
-
-````bash
-squeue -u $(whoami) 2>/dev/null || echo "squeue unavailable"
-````
-**解説**: 共有クラスタでは自分のジョブを絞ります。
-
-**確認ポイント**: 自分のジョブが表示される。
-
-
-## Knock 060: SBATCHスクリプト雛形を作る
-
-**目的**: Slurm投入用スクリプトを作る。
-
-````bash
-cat > slurm_sample.sh <<EOF
-#!/usr/bin/env bash
-#SBATCH --job-name=ubuntu100
-#SBATCH --output=slurm-%j.out
-#SBATCH --time=00:05:00
-
-hostname
-python3 --version
-EOF
-````
-**解説**: 直接python実行ではなくsbatchで投げる環境用です。
+**解説**: 時刻指定の読み間違いを防ぎます。
 
 **確認ポイント**: ファイルを確認。
 
 
-## Knock 061: SBATCH投入形を見る
+## Knock 058: 毎日3時の例を書く
 
-**目的**: ジョブ投入コマンドの型を覚える。
+**目的**: cron例を保存する。
 
 ````bash
-echo "sbatch slurm_sample.sh"
+echo "0 3 * * * /path/to/backup.sh" >> cron_format.txt
 ````
-**解説**: 実環境でのみ実行します。
+**解説**: 実行はせず例として理解します。
 
-**確認ポイント**: 型を確認。
+**確認ポイント**: 例が追記される。
+
+
+## Knock 059: 毎週日曜の例を書く
+
+**目的**: 週次実行の例を覚える。
+
+````bash
+echo "0 4 * * 0 /path/to/cleanup.sh" >> cron_format.txt
+````
+**解説**: 曜日0は日曜の扱いが多いです。
+
+**確認ポイント**: 例が追記される。
+
+
+## Knock 060: cron用PATH問題をメモ
+
+**目的**: cron特有の失敗を覚える。
+
+````bash
+echo "cronではPATHが短いので絶対パス推奨" >> cron_notes.txt
+````
+**解説**: 手で動くのにcronで動かない原因になりがちです。
+
+**確認ポイント**: メモを確認。
+
+
+## Knock 061: 総復習チェック 061
+
+**目的**: その領域の練習前後で現在地・時刻・ファイル状態を確認する。
+
+````bash
+pwd && date && ls -lah | head
+````
+**解説**: 初心者ほど、現在地と対象ファイルを確認する癖が重要です。迷ったらまずこの確認セットに戻ります。
+
+**確認ポイント**: 現在地、日時、ファイル一覧の先頭が表示される。
 
 
 ## Knock 062: 総復習チェック 062
