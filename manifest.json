@@ -2,161 +2,154 @@
   "created": "2026-06-04",
   "topics": [
     {
-      "key": "foundation_local_cli",
-      "title": "Ubuntu CLI基礎100本ノック",
-      "description": "ローカルCLI基礎編。",
+      "key": "cli_foundation",
+      "title": "Ubuntu CLI基礎",
+      "description": "ローカルCLIと研究サーバSSHの土台をまとめる。",
       "files": [
         {
-          "level": "v0",
-          "path": "v0_foundation/local_cli_v0_100knock.md",
+          "level": "intro",
+          "path": "cli_foundation/intro_100knock.md",
           "knocks": 100
-        }
-      ]
-    },
-    {
-      "key": "foundation_server_cli",
-      "title": "研究サーバSSH応用100本ノック",
-      "description": "研究サーバSSH応用編。",
-      "files": [
+        },
         {
-          "level": "v0",
-          "path": "v0_foundation/server_cli_v0_100knock.md",
+          "level": "practice",
+          "path": "cli_foundation/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "python_env",
-      "title": "Python研究環境100本ノック",
+      "title": "Python研究環境",
       "description": "Python/uv/venv/pip/VSCode/環境変数を、研究実装前提で扱う。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/python_env_v1_100knock.md",
+          "level": "intro",
+          "path": "python_env/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/python_env_v2_100knock.md",
+          "level": "practice",
+          "path": "python_env/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "git",
-      "title": "Git 100本ノック",
+      "title": "Git",
       "description": "VSCode利用者でもCLIで履歴・差分・ブランチを読めるようにする。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/git_v1_100knock.md",
+          "level": "intro",
+          "path": "git/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/git_v2_100knock.md",
+          "level": "practice",
+          "path": "git/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "shell",
-      "title": "シェルスクリプト100本ノック",
+      "title": "シェルスクリプト",
       "description": "ワンライナーから再利用可能な実験手順へ進む。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/shell_v1_100knock.md",
+          "level": "intro",
+          "path": "shell/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/shell_v2_100knock.md",
+          "level": "practice",
+          "path": "shell/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "permissions",
-      "title": "Linux権限・トラブルシュート100本ノック",
+      "title": "Linux権限・トラブルシュート",
       "description": "Permission deniedや容量・プロセス問題の初動確認を身につける。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/permissions_v1_100knock.md",
+          "level": "intro",
+          "path": "permissions/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/permissions_v2_100knock.md",
+          "level": "practice",
+          "path": "permissions/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "docker",
-      "title": "Docker慎重入門100本ノック",
+      "title": "Docker",
       "description": "Dockerを怖がらず、容量・コンテナ・イメージを見ながら安全に扱う。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/docker_v1_100knock.md",
+          "level": "intro",
+          "path": "docker/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/docker_v2_100knock.md",
+          "level": "practice",
+          "path": "docker/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "network",
-      "title": "ネットワーク・SSH詳細100本ノック",
+      "title": "ネットワーク・SSH",
       "description": "VPN/SSH/HTTP/ポートフォワード/疎通確認を研究サーバ前提で扱う。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/network_v1_100knock.md",
+          "level": "intro",
+          "path": "network/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/network_v2_100knock.md",
+          "level": "practice",
+          "path": "network/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "jobs",
-      "title": "ジョブ管理・長時間実験100本ノック",
+      "title": "ジョブ管理・長時間実験",
       "description": "tmux/nohup/watch/Slurm雛形でサーバ実験を運用する。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/jobs_v1_100knock.md",
+          "level": "intro",
+          "path": "jobs/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/jobs_v2_100knock.md",
+          "level": "practice",
+          "path": "jobs/practice_100knock.md",
           "knocks": 100
         }
       ]
     },
     {
       "key": "archive_cron",
-      "title": "圧縮・バックアップ・cron 100本ノック",
+      "title": "圧縮・バックアップ・cron",
       "description": "tar/zip/バックアップ検証/定期実行の型を扱う。",
       "files": [
         {
-          "level": "v1",
-          "path": "v1_intro/archive_cron_v1_100knock.md",
+          "level": "intro",
+          "path": "archive_cron/intro_100knock.md",
           "knocks": 100
         },
         {
-          "level": "v2",
-          "path": "v2_practice/archive_cron_v2_100knock.md",
+          "level": "practice",
+          "path": "archive_cron/practice_100knock.md",
           "knocks": 100
         }
       ]

@@ -1,15 +1,207 @@
-# 全Knock一覧（GitHub管理版）
-
-## v0 Foundation
-
-- [Ubuntu CLI基礎100本ノック](v0_foundation/local_cli_v0_100knock.md)
-- [研究サーバSSH応用100本ノック](v0_foundation/server_cli_v0_100knock.md)
-
----
-
 # 全Knock一覧
 
-## Python研究環境100本ノック v1
+領域（分野）ごとに、入門編と実践編を並べています。
+
+## Ubuntu CLI基礎
+
+ローカルCLIと研究サーバSSHの土台をまとめる。
+
+### [入門編](cli_foundation/intro_100knock.md)
+
+- Knock 001: pwd を使う
+- Knock 002: cd ~ を使う
+- Knock 003: mkdir -p ~/ubuntu100knock/{data,logs,src,notes,tmp,backup} を使う
+- Knock 004: cd ~/ubuntu100knock を使う
+- Knock 005: ls を使う
+- Knock 006: ls -l を使う
+- Knock 007: ls -la を使う
+- Knock 008: ls -lh を使う
+- Knock 009: ls -lah を使う
+- Knock 010: find . -maxdepth 2 を使う
+- Knock 011: CSVを作る
+- Knock 012: ログを作る
+- Knock 013: JSONLを作る
+- Knock 014: Pythonを作る
+- Knock 015: 空ファイル作成
+- Knock 016: 上書き保存
+- Knock 017: 追記保存
+- Knock 018: 中身表示
+- Knock 019: コピー
+- Knock 020: リネーム
+- Knock 021: 移動
+- Knock 022: 確認削除
+- Knock 023: ディレクトリコピー
+- Knock 024: 結果確認
+- Knock 025: CSV表示
+- Knock 026: 先頭5行
+- Knock 027: 末尾5行
+- Knock 028: ログ末尾
+- Knock 029: 行数
+- Knock 030: ヘッダー除外件数
+- Knock 031: ファイル種別
+- Knock 032: ファイル容量
+- Knock 033: 全体容量
+- Knock 034: 容量ランキング
+- Knock 035: ERROR検索
+- Knock 036: 行番号つき
+- Knock 037: 大小無視
+- Knock 038: WARN/ERROR
+- Knock 039: INFO除外
+- Knock 040: 再帰検索
+- Knock 041: 件数
+- Knock 042: 保存
+- Knock 043: 前後
+- Knock 044: TODO
+- Knock 045: ERROR件数
+- Knock 046: 末尾からERROR
+- Knock 047: 名前列
+- Knock 048: ヘッダーなし名前
+- Knock 049: city件数
+- Knock 050: city件数降順
+- Knock 051: score昇順
+- Knock 052: score降順
+- Knock 053: team件数
+- Knock 054: 抽出型
+- Knock 055: 80点以上
+- Knock 056: 80点以上名前
+- Knock 057: 平均点
+- Knock 058: team平均
+- Knock 059: score降順表
+- Knock 060: 置換表示
+- Knock 061: 空行削除
+- Knock 062: 小文字化
+- Knock 063: CSV表表示
+- Knock 064: ログレベル
+- Knock 065: CSV探索
+- Knock 066: log探索
+- Knock 067: py探索
+- Knock 068: ファイルだけ
+- Knock 069: 空ファイル
+- Knock 070: 最近更新
+- Knock 071: 名前検索
+- Knock 072: 全行数
+- Knock 073: Markdown TODO
+- Knock 074: 大ファイル
+- Knock 075: ls保存
+- Knock 076: date追記
+- Knock 077: tee保存
+- Knock 078: stderr分離
+- Knock 079: 出力まとめ
+- Knock 080: Pythonログ
+- Knock 081: Python tee
+- Knock 082: OS情報
+- Knock 083: メモリ
+- Knock 084: ディスク
+- Knock 085: Pythonプロセス
+- Knock 086: ログレベル件数
+- Knock 087: ERROR本文
+- Knock 088: 重要ログ保存
+- Knock 089: jq整形
+- Knock 090: acc抽出
+- Knock 091: 高acc
+- Knock 092: CSV化
+- Knock 093: 総合型
+- Knock 094: 復唱型
+
+### [実践編](cli_foundation/practice_100knock.md)
+
+- Knock 001: ユーザ確認
+- Knock 002: ホスト確認
+- Knock 003: IP確認
+- Knock 004: inet抽出
+- Knock 005: 経路
+- Knock 006: ping
+- Knock 007: SSH
+- Knock 008: SSH先hostname
+- Knock 009: SSH先pwd
+- Knock 010: exit
+- Knock 011: 遠隔hostname
+- Knock 012: 遠隔容量
+- Knock 013: 遠隔メモリ
+- Knock 014: 遠隔Python
+- Knock 015: 遠隔GPU
+- Knock 016: ssh config準備
+- Knock 017: config作成
+- Knock 018: config編集
+- Knock 019: 短縮名接続
+- Knock 020: 状態一括
+- Knock 021: curl取得
+- Knock 022: curl保存
+- Knock 023: wget保存
+- Knock 024: ヘッダー
+- Knock 025: API
+- Knock 026: URLリスト
+- Knock 027: 一括wget
+- Knock 028: サイズ
+- Knock 029: 先頭
+- Knock 030: サーバ直接wget
+- Knock 031: scp送信
+- Knock 032: scp回収
+- Knock 033: scpディレクトリ送信
+- Knock 034: scpディレクトリ回収
+- Knock 035: rsync dry-run
+- Knock 036: rsync送信
+- Knock 037: rsync回収
+- Knock 038: CSVだけ
+- Knock 039: log除外
+- Knock 040: 容量確認
+- Knock 041: 普通実行
+- Knock 042: ログ保存
+- Knock 043: tee
+- Knock 044: バックグラウンド
+- Knock 045: jobs
+- Knock 046: pgrep
+- Knock 047: nohup
+- Knock 048: tailログ
+- Knock 049: 遠隔nohup
+- Knock 050: 遠隔tail
+- Knock 051: tmux
+- Knock 052: 名前つき
+- Knock 053: detach
+- Knock 054: 一覧
+- Knock 055: 戻る
+- Knock 056: tmux内実験
+- Knock 057: 新窓
+- Knock 058: 次
+- Knock 059: 前
+- Knock 060: 終了
+- Knock 061: tail -f
+- Knock 062: ERROR監視
+- Knock 063: WARN/ERROR
+- Knock 064: 前後
+- Knock 065: 前
+- Knock 066: 後
+- Knock 067: レベル集計
+- Knock 068: 日別ERROR
+- Knock 069: GPU watch
+- Knock 070: 遠隔GPU watch
+- Knock 071: df
+- Knock 072: du
+- Knock 073: 直下
+- Knock 074: 大ファイル
+- Knock 075: 100MB
+- Knock 076: 1GB
+- Knock 077: 古いログ
+- Knock 078: 確認削除
+- Knock 079: 遠隔容量
+- Knock 080: 遠隔大ファイル
+- Knock 081: 状態一括
+- Knock 082: 送信起動
+- Knock 083: ログ確認
+- Knock 084: 回収
+- Knock 085: 対話実行
+- Knock 086: 実験dir
+- Knock 087: 設定保存
+- Knock 088: 警告抽出
+- Knock 089: 重いモデル除外回収
+- Knock 090: 最終型
+
+## Python研究環境
+
+Python/uv/venv/pip/VSCode/環境変数を、研究実装前提で扱う。
+
+### [入門編](python_env/intro_100knock.md)
+
 - Knock 001: Pythonの場所を確認する
 - Knock 002: Pythonのバージョンを確認する
 - Knock 003: pipの場所を確認する
@@ -111,7 +303,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Python研究環境100本ノック v2
+### [実践編](python_env/practice_100knock.md)
+
 - Knock 001: プロジェクト雛形を作る
 - Knock 002: pyprojectを作る
 - Knock 003: uv syncの前提確認
@@ -213,7 +406,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Git 100本ノック v1
+## Git
+
+VSCode利用者でもCLIで履歴・差分・ブランチを読めるようにする。
+
+### [入門編](git/intro_100knock.md)
+
 - Knock 001: 練習用リポジトリを作る
 - Knock 002: ユーザ名を確認する
 - Knock 003: メールを確認する
@@ -315,7 +513,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Git 100本ノック v2
+### [実践編](git/practice_100knock.md)
+
 - Knock 001: 練習用リポジトリを作る
 - Knock 002: ユーザ名を確認する
 - Knock 003: メールを確認する
@@ -417,7 +616,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## シェルスクリプト100本ノック v1
+## シェルスクリプト
+
+ワンライナーから再利用可能な実験手順へ進む。
+
+### [入門編](shell/intro_100knock.md)
+
 - Knock 001: 練習ディレクトリを作る
 - Knock 002: 最初のスクリプトを作る
 - Knock 003: 実行権限を付ける
@@ -519,7 +723,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## シェルスクリプト100本ノック v2
+### [実践編](shell/practice_100knock.md)
+
 - Knock 001: 練習ディレクトリを作る
 - Knock 002: 最初のスクリプトを作る
 - Knock 003: 実行権限を付ける
@@ -621,7 +826,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Linux権限・トラブルシュート100本ノック v1
+## Linux権限・トラブルシュート
+
+Permission deniedや容量・プロセス問題の初動確認を身につける。
+
+### [入門編](permissions/intro_100knock.md)
+
 - Knock 001: 権限表示を見る
 - Knock 002: 自分のユーザを確認する
 - Knock 003: 所属グループを見る
@@ -723,7 +933,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Linux権限・トラブルシュート100本ノック v2
+### [実践編](permissions/practice_100knock.md)
+
 - Knock 001: 権限表示を見る
 - Knock 002: 自分のユーザを確認する
 - Knock 003: 所属グループを見る
@@ -825,7 +1036,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Docker慎重入門100本ノック v1
+## Docker
+
+Dockerを怖がらず、容量・コンテナ・イメージを見ながら安全に扱う。
+
+### [入門編](docker/intro_100knock.md)
+
 - Knock 001: Dockerがあるか確認する
 - Knock 002: Dockerバージョンを見る
 - Knock 003: Docker daemon疎通確認
@@ -927,7 +1143,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## Docker慎重入門100本ノック v2
+### [実践編](docker/practice_100knock.md)
+
 - Knock 001: Dockerがあるか確認する
 - Knock 002: Dockerバージョンを見る
 - Knock 003: Docker daemon疎通確認
@@ -1029,7 +1246,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## ネットワーク・SSH詳細100本ノック v1
+## ネットワーク・SSH
+
+VPN/SSH/HTTP/ポートフォワード/疎通確認を研究サーバ前提で扱う。
+
+### [入門編](network/intro_100knock.md)
+
 - Knock 001: IPアドレスを見る
 - Knock 002: IP行だけ抽出する
 - Knock 003: 経路を見る
@@ -1131,7 +1353,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## ネットワーク・SSH詳細100本ノック v2
+### [実践編](network/practice_100knock.md)
+
 - Knock 001: IPアドレスを見る
 - Knock 002: IP行だけ抽出する
 - Knock 003: 経路を見る
@@ -1233,7 +1456,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## ジョブ管理・長時間実験100本ノック v1
+## ジョブ管理・長時間実験
+
+tmux/nohup/watch/Slurm雛形でサーバ実験を運用する。
+
+### [入門編](jobs/intro_100knock.md)
+
 - Knock 001: tmuxがあるか確認する
 - Knock 002: nvidia-smi確認
 - Knock 003: Pythonプロセス確認
@@ -1335,7 +1563,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## ジョブ管理・長時間実験100本ノック v2
+### [実践編](jobs/practice_100knock.md)
+
 - Knock 001: tmuxがあるか確認する
 - Knock 002: nvidia-smi確認
 - Knock 003: Pythonプロセス確認
@@ -1437,7 +1666,12 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## 圧縮・バックアップ・cron 100本ノック v1
+## 圧縮・バックアップ・cron
+
+tar/zip/バックアップ検証/定期実行の型を扱う。
+
+### [入門編](archive_cron/intro_100knock.md)
+
 - Knock 001: tarがあるか確認
 - Knock 002: 練習ディレクトリを作る
 - Knock 003: サンプルファイルを作る
@@ -1539,7 +1773,8 @@
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
 
-## 圧縮・バックアップ・cron 100本ノック v2
+### [実践編](archive_cron/practice_100knock.md)
+
 - Knock 001: tarがあるか確認
 - Knock 002: 練習ディレクトリを作る
 - Knock 003: サンプルファイルを作る
@@ -1640,3 +1875,4 @@
 - Knock 098: 総復習チェック 098
 - Knock 099: 総復習チェック 099
 - Knock 100: 総復習チェック 100
+

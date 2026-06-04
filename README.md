@@ -2,22 +2,52 @@
 
 研究実装者向けの Ubuntu / Linux CLI 練習リポジトリです。
 
-## 構成
+## 構成方針
 
-- `v0_foundation/`：最初に作った2本。CLI基礎と研究サーバSSH実務の土台。
-- `v1_intro/`：各領域の入門編。
-- `v2_practice/`：各領域の応用・実践編。
+このリポジトリは、**領域（分野）ごとのディレクトリ**に整理しています。
+各領域の中には、次の2本を置きます。
+
+- `intro_100knock.md`：入門編。まず壊さず、意味を確認しながら手を動かす。
+- `practice_100knock.md`：実践編。研究実務で使う形に近づける。
+
+## ディレクトリ構成
+
+| 領域 | 入門編 | 実践編 |
+|---|---|---|
+| Ubuntu CLI基礎 | [`cli_foundation/intro_100knock.md`](cli_foundation/intro_100knock.md) | [`cli_foundation/practice_100knock.md`](cli_foundation/practice_100knock.md) |
+| Python研究環境 | [`python_env/intro_100knock.md`](python_env/intro_100knock.md) | [`python_env/practice_100knock.md`](python_env/practice_100knock.md) |
+| Git | [`git/intro_100knock.md`](git/intro_100knock.md) | [`git/practice_100knock.md`](git/practice_100knock.md) |
+| シェルスクリプト | [`shell/intro_100knock.md`](shell/intro_100knock.md) | [`shell/practice_100knock.md`](shell/practice_100knock.md) |
+| Linux権限・トラブルシュート | [`permissions/intro_100knock.md`](permissions/intro_100knock.md) | [`permissions/practice_100knock.md`](permissions/practice_100knock.md) |
+| Docker | [`docker/intro_100knock.md`](docker/intro_100knock.md) | [`docker/practice_100knock.md`](docker/practice_100knock.md) |
+| ネットワーク・SSH | [`network/intro_100knock.md`](network/intro_100knock.md) | [`network/practice_100knock.md`](network/practice_100knock.md) |
+| ジョブ管理・長時間実験 | [`jobs/intro_100knock.md`](jobs/intro_100knock.md) | [`jobs/practice_100knock.md`](jobs/practice_100knock.md) |
+| 圧縮・バックアップ・cron | [`archive_cron/intro_100knock.md`](archive_cron/intro_100knock.md) | [`archive_cron/practice_100knock.md`](archive_cron/practice_100knock.md) |
+
+補助ファイル：
+
+- `00_ALL_KNOCK_INDEX.md`：全領域・全Knockの索引。
+- `manifest.json`：領域、入門編・実践編、Knock数の機械可読な一覧。
 - `progress/`：3周するための進捗管理。
+- `cheatsheets/`：重要コマンドの早見表。
 
 ## 推奨学習順
 
-1. `v0_foundation/local_cli_v0_100knock.md`
-2. `v0_foundation/server_cli_v0_100knock.md`
-3. `v1_intro/python_env_v1_100knock.md`
-4. `v1_intro/git_v1_100knock.md`
-5. `v1_intro/shell_v1_100knock.md`
-6. 必要に応じて `permissions`, `network`, `jobs`, `archive_cron`, `docker`
-7. 対応する `v2_practice/` に進む
+1. `cli_foundation/intro_100knock.md` でローカルCLIの基礎を固める。
+2. `cli_foundation/practice_100knock.md` で研究サーバSSH実務の土台を作る。
+3. `python_env/intro_100knock.md`、`git/intro_100knock.md`、`shell/intro_100knock.md` に進む。
+4. 必要に応じて `permissions/`、`network/`、`jobs/`、`archive_cron/`、`docker/` の入門編を進める。
+5. 各領域の `practice_100knock.md` に進み、実務に近い形で反復する。
+
+
+## 問題・解答・解説の品質方針
+
+各Knockは、単にコマンドを並べるだけではなく、**なぜそのコマンドを使うのか**まで学べる形を目指します。特に解説は次の要素を含める方針です。
+
+- **コマンドの役割**：何を確認・作成・検索・転送するための操作なのか。
+- **主要オプションの意味**：例：`grep -c` の `-c` は count、`grep -B 3` の `-B` は before、`rsync -avP` の `-a`/`-v`/`-P` は属性保持・詳細表示・進捗/再開。
+- **使う場面**：ログ調査、研究データ転送、リモートサーバ状態確認、実験結果回収など、研究・開発実務でどう役立つか。
+- **次に試す派生形**：必要に応じて `tail -f`、`tail -n 50`、`grep -A`、`--dry-run` のような発展操作へつなげる。
 
 ## GitHubに置く手順
 

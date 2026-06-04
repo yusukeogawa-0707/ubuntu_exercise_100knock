@@ -1,11 +1,11 @@
-# Git 100本ノック — v1 入門編
+# Git 100本ノック — 実践編
 
 ## 位置づけ
 
 VSCode利用者でもCLIで履歴・差分・ブランチを読めるようにする。
 
-- v1入門編: まず壊さず、意味を確認しながら手を動かす。
-- v2応用・実践編: 研究実務で使う形に近づける。
+- 入門編: まず壊さず、意味を確認しながら手を動かす。
+- 実践編: 研究実務で使う形に近づける。
 
 ## 使い方
 
@@ -135,731 +135,724 @@ git log --oneline
 **確認ポイント**: 1行のコミットが表示される。
 
 
-## Knock 011: src/train.pyを作成・変更する
+## Knock 011: remote一覧を見る
 
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname src/train.py) && echo "sample for src/train.py" >> src/train.py
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 012: src/train.pyの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
+**目的**: 接続先リポジトリを確認する。
 
 ````bash
-git diff -- src/train.py
+git remote -v
 ````
-**解説**: 対象を絞ると出力が読みやすくなります。
+**解説**: サーバやGitHub連携時に最初に確認します。
 
-**確認ポイント**: そのファイルの差分だけ出る。
+**確認ポイント**: remoteがあればURLが出る。
 
 
-## Knock 013: src/train.pyをステージする
+## Knock 012: remoteを追加する形を覚える
 
-**目的**: 対象ファイルだけaddする。
+**目的**: originを追加する型を覚える。
 
 ````bash
-git add src/train.py
+git remote add origin git@example.com:USER/REPO.git
 ````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
+**解説**: 実行するURLは自分のrepoに置き換えます。
 
-**確認ポイント**: `git status` でstagedになる。
+**確認ポイント**: `git remote -v` で確認。
 
 
-## Knock 014: src/train.pyをコミットする
+## Knock 013: fetchする
 
-**目的**: 変更を履歴に残す。
+**目的**: リモート情報を取得する。
 
 ````bash
-git commit -m "Update src/train.py"
+git fetch --all --prune
 ````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
+**解説**: 作業前にリモート状況を更新します。
 
-**確認ポイント**: `git log --oneline -n 3` で確認。
+**確認ポイント**: remote branch情報が更新される。
 
 
-## Knock 015: src/eval.pyを作成・変更する
+## Knock 014: pullする
 
-**目的**: ファイル変更を発生させる。
+**目的**: 安全寄りに取り込む。
 
 ````bash
-mkdir -p $(dirname src/eval.py) && echo "sample for src/eval.py" >> src/eval.py
+git pull --ff-only
 ````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
+**解説**: 余計なmerge commitを避けたい時に使います。
 
-**確認ポイント**: `git status` で変更を見る。
+**確認ポイント**: 更新またはAlready up to date。
 
 
-## Knock 016: src/eval.pyの差分を見る
+## Knock 015: pushする形を覚える
 
-**目的**: 特定ファイルだけ差分を見る。
+**目的**: 現在ブランチをリモートへ送る。
 
 ````bash
-git diff -- src/eval.py
+git push -u origin main
 ````
-**解説**: 対象を絞ると出力が読みやすくなります。
+**解説**: 初回pushでupstreamを設定します。
 
-**確認ポイント**: そのファイルの差分だけ出る。
+**確認ポイント**: GitHub等に反映される。
 
 
-## Knock 017: src/eval.pyをステージする
+## Knock 016: 変更ファイルの名前だけ見る
 
-**目的**: 対象ファイルだけaddする。
+**目的**: 変更ファイル一覧だけ見る。
 
 ````bash
-git add src/eval.py
+git diff --name-only
 ````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
+**解説**: レビュー前に対象を把握します。
 
-**確認ポイント**: `git status` でstagedになる。
+**確認ポイント**: ファイル名だけ表示。
 
 
-## Knock 018: src/eval.pyをコミットする
+## Knock 017: ステージ差分を見る
 
-**目的**: 変更を履歴に残す。
+**目的**: コミット直前の差分を見る。
 
 ````bash
-git commit -m "Update src/eval.py"
+git diff --staged
 ````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
+**解説**: コミットに入る内容を最終確認します。
 
-**確認ポイント**: `git log --oneline -n 3` で確認。
+**確認ポイント**: staged差分が出る。
 
 
-## Knock 019: configs/base.yamlを作成・変更する
+## Knock 018: 一部だけaddする
 
-**目的**: ファイル変更を発生させる。
+**目的**: 変更の一部だけステージする。
 
 ````bash
-mkdir -p $(dirname configs/base.yaml) && echo "sample for configs/base.yaml" >> configs/base.yaml
+git add -p README.md
 ````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
+**解説**: 意味単位でコミットを分けるために便利です。
 
-**確認ポイント**: `git status` で変更を見る。
+**確認ポイント**: 対話的に選択する。
 
 
-## Knock 020: configs/base.yamlの差分を見る
+## Knock 019: 直前コミットメッセージを直す
 
-**目的**: 特定ファイルだけ差分を見る。
+**目的**: 直前コミットを修正する。
 
 ````bash
-git diff -- configs/base.yaml
+git commit --amend -m "Better message"
 ````
-**解説**: 対象を絞ると出力が読みやすくなります。
+**解説**: push前なら便利です。push後は注意が必要です。
 
-**確認ポイント**: そのファイルの差分だけ出る。
+**確認ポイント**: 直近ログのメッセージが変わる。
 
 
-## Knock 021: configs/base.yamlをステージする
+## Knock 020: stashする
 
-**目的**: 対象ファイルだけaddする。
+**目的**: 一時的に変更を退避する。
 
 ````bash
-git add configs/base.yaml
+git stash push -m "wip"
 ````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
+**解説**: 別作業に切り替える時に便利です。
 
-**確認ポイント**: `git status` でstagedになる。
+**確認ポイント**: stash listに出る。
 
 
-## Knock 022: configs/base.yamlをコミットする
+## Knock 021: stash一覧を見る
 
-**目的**: 変更を履歴に残す。
+**目的**: 退避中の変更を見る。
 
 ````bash
-git commit -m "Update configs/base.yaml"
+git stash list
 ````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
+**解説**: どの作業を退避したか確認します。
 
-**確認ポイント**: `git log --oneline -n 3` で確認。
+**確認ポイント**: stash@{0}等が出る。
 
 
-## Knock 023: data/sample.csvを作成・変更する
+## Knock 022: stashを戻す
 
-**目的**: ファイル変更を発生させる。
+**目的**: 退避した変更を復元する。
 
 ````bash
-mkdir -p $(dirname data/sample.csv) && echo "sample for data/sample.csv" >> data/sample.csv
+git stash pop
 ````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
+**解説**: 戻したらstashから消えます。
 
-**確認ポイント**: `git status` で変更を見る。
+**確認ポイント**: 変更が作業ツリーに戻る。
 
 
-## Knock 024: data/sample.csvの差分を見る
+## Knock 023: reflogを見る
 
-**目的**: 特定ファイルだけ差分を見る。
+**目的**: HEAD移動履歴を見る。
 
 ````bash
-git diff -- data/sample.csv
+git reflog -n 10
 ````
-**解説**: 対象を絞ると出力が読みやすくなります。
+**解説**: 間違って戻した時の命綱です。
 
-**確認ポイント**: そのファイルの差分だけ出る。
+**確認ポイント**: 最近の操作履歴が出る。
 
 
-## Knock 025: data/sample.csvをステージする
+## Knock 024: 特定コミットに一時移動する
 
-**目的**: 対象ファイルだけaddする。
+**目的**: 過去状態を確認する。
 
 ````bash
-git add data/sample.csv
+git switch --detach HEAD~1
 ````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
+**解説**: detach状態なので作業保存には注意します。
 
-**確認ポイント**: `git status` でstagedになる。
+**確認ポイント**: HEAD detached表示。
 
 
-## Knock 026: data/sample.csvをコミットする
+## Knock 025: 元ブランチに戻る
 
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update data/sample.csv"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 027: notes/memo.mdを作成・変更する
-
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname notes/memo.md) && echo "sample for notes/memo.md" >> notes/memo.md
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 028: notes/memo.mdの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
-
-````bash
-git diff -- notes/memo.md
-````
-**解説**: 対象を絞ると出力が読みやすくなります。
-
-**確認ポイント**: そのファイルの差分だけ出る。
-
-
-## Knock 029: notes/memo.mdをステージする
-
-**目的**: 対象ファイルだけaddする。
-
-````bash
-git add notes/memo.md
-````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
-
-**確認ポイント**: `git status` でstagedになる。
-
-
-## Knock 030: notes/memo.mdをコミットする
-
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update notes/memo.md"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 031: scripts/run.shを作成・変更する
-
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname scripts/run.sh) && echo "sample for scripts/run.sh" >> scripts/run.sh
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 032: scripts/run.shの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
-
-````bash
-git diff -- scripts/run.sh
-````
-**解説**: 対象を絞ると出力が読みやすくなります。
-
-**確認ポイント**: そのファイルの差分だけ出る。
-
-
-## Knock 033: scripts/run.shをステージする
-
-**目的**: 対象ファイルだけaddする。
-
-````bash
-git add scripts/run.sh
-````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
-
-**確認ポイント**: `git status` でstagedになる。
-
-
-## Knock 034: scripts/run.shをコミットする
-
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update scripts/run.sh"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 035: requirements.txtを作成・変更する
-
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname requirements.txt) && echo "sample for requirements.txt" >> requirements.txt
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 036: requirements.txtの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
-
-````bash
-git diff -- requirements.txt
-````
-**解説**: 対象を絞ると出力が読みやすくなります。
-
-**確認ポイント**: そのファイルの差分だけ出る。
-
-
-## Knock 037: requirements.txtをステージする
-
-**目的**: 対象ファイルだけaddする。
-
-````bash
-git add requirements.txt
-````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
-
-**確認ポイント**: `git status` でstagedになる。
-
-
-## Knock 038: requirements.txtをコミットする
-
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update requirements.txt"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 039: README.mdを作成・変更する
-
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname README.md) && echo "sample for README.md" >> README.md
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 040: README.mdの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
-
-````bash
-git diff -- README.md
-````
-**解説**: 対象を絞ると出力が読みやすくなります。
-
-**確認ポイント**: そのファイルの差分だけ出る。
-
-
-## Knock 041: README.mdをステージする
-
-**目的**: 対象ファイルだけaddする。
-
-````bash
-git add README.md
-````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
-
-**確認ポイント**: `git status` でstagedになる。
-
-
-## Knock 042: README.mdをコミットする
-
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update README.md"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 043: logs/debug.logを作成・変更する
-
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname logs/debug.log) && echo "sample for logs/debug.log" >> logs/debug.log
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 044: logs/debug.logの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
-
-````bash
-git diff -- logs/debug.log
-````
-**解説**: 対象を絞ると出力が読みやすくなります。
-
-**確認ポイント**: そのファイルの差分だけ出る。
-
-
-## Knock 045: logs/debug.logをステージする
-
-**目的**: 対象ファイルだけaddする。
-
-````bash
-git add logs/debug.log
-````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
-
-**確認ポイント**: `git status` でstagedになる。
-
-
-## Knock 046: logs/debug.logをコミットする
-
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update logs/debug.log"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 047: outputs/result.txtを作成・変更する
-
-**目的**: ファイル変更を発生させる。
-
-````bash
-mkdir -p $(dirname outputs/result.txt) && echo "sample for outputs/result.txt" >> outputs/result.txt
-````
-**解説**: Gitは変更を検出します。作成・編集・削除を小さく体験します。
-
-**確認ポイント**: `git status` で変更を見る。
-
-
-## Knock 048: outputs/result.txtの差分を見る
-
-**目的**: 特定ファイルだけ差分を見る。
-
-````bash
-git diff -- outputs/result.txt
-````
-**解説**: 対象を絞ると出力が読みやすくなります。
-
-**確認ポイント**: そのファイルの差分だけ出る。
-
-
-## Knock 049: outputs/result.txtをステージする
-
-**目的**: 対象ファイルだけaddする。
-
-````bash
-git add outputs/result.txt
-````
-**解説**: 全部addではなく、意図したファイルだけ選ぶ練習です。
-
-**確認ポイント**: `git status` でstagedになる。
-
-
-## Knock 050: outputs/result.txtをコミットする
-
-**目的**: 変更を履歴に残す。
-
-````bash
-git commit -m "Update outputs/result.txt"
-````
-**解説**: 小さく意味のある単位でコミットする癖をつけます。
-
-**確認ポイント**: `git log --oneline -n 3` で確認。
-
-
-## Knock 051: 作業ツリーを短く見る
-
-**目的**: 状態を短縮表示で見る。
-
-````bash
-git status -sb
-````
-**解説**: 日常的には `git status -sb` が見やすいです。
-
-**確認ポイント**: ブランチ名と変更状態が短く出る。
-
-
-## Knock 052: 直近3件のログを見る
-
-**目的**: 最近の履歴だけ確認する。
-
-````bash
-git log --oneline -n 3
-````
-**解説**: 履歴が長いときに便利です。
-
-**確認ポイント**: 3件まで表示。
-
-
-## Knock 053: ファイル一覧をGit管理対象だけ表示
-
-**目的**: Gitが追跡しているファイルを見る。
-
-````bash
-git ls-files
-````
-**解説**: 未追跡との区別ができます。
-
-**確認ポイント**: 管理対象ファイルが表示される。
-
-
-## Knock 054: READMEの履歴を見る
-
-**目的**: 特定ファイルの履歴を見る。
-
-````bash
-git log --oneline -- README.md
-````
-**解説**: いつ編集されたか追えます。
-
-**確認ポイント**: README関連コミットが表示される。
-
-
-## Knock 055: コミット内容を見る
-
-**目的**: 直近コミットの概要を見る。
-
-````bash
-git show --stat --oneline HEAD
-````
-**解説**: どのファイルが何行変わったか確認できます。
-
-**確認ポイント**: statが表示される。
-
-
-## Knock 056: コミット詳細を見る
-
-**目的**: 直近コミットの特定ファイル差分を見る。
-
-````bash
-git show HEAD -- README.md
-````
-**解説**: レビュー前の確認に便利です。
-
-**確認ポイント**: README差分が出る。
-
-
-## Knock 057: 未ステージ変更を戻す練習用ファイルを作る
-
-**目的**: 戻す対象の変更を作る。
-
-````bash
-echo "temporary" >> notes/memo.md
-````
-**解説**: restoreの練習用です。
-
-**確認ポイント**: `git diff notes/memo.md` で確認。
-
-
-## Knock 058: 未ステージ変更を戻す
-
-**目的**: 作業中の変更を捨てる。
-
-````bash
-git restore notes/memo.md
-````
-**解説**: 危険操作なので、必ずdiff確認後に使います。
-
-**確認ポイント**: 変更が消える。
-
-
-## Knock 059: ステージを取り消す練習
-
-**目的**: unstageの練習状態を作る。
-
-````bash
-echo "stage test" >> notes/memo.md && git add notes/memo.md
-````
-**解説**: add済みを戻す練習です。
-
-**確認ポイント**: stagedに見える。
-
-
-## Knock 060: ステージを取り消す
-
-**目的**: addだけ取り消す。
-
-````bash
-git restore --staged notes/memo.md
-````
-**解説**: ファイル内容は残り、ステージから外れます。
-
-**確認ポイント**: unstagedに戻る。
-
-
-## Knock 061: ブランチ一覧を見る
-
-**目的**: ローカルブランチを見る。
-
-````bash
-git branch
-````
-**解説**: 今いるブランチ確認は重要です。
-
-**確認ポイント**: `*` が現在ブランチ。
-
-
-## Knock 062: 新しいブランチを作る
-
-**目的**: 作業用ブランチを作る。
-
-````bash
-git switch -c feature/sample
-````
-**解説**: 実験的変更はmainではなくブランチで行うと安全です。
-
-**確認ポイント**: ブランチが切り替わる。
-
-
-## Knock 063: ブランチ上で変更する
-
-**目的**: ブランチ上でコミットする。
-
-````bash
-echo "feature work" >> README.md && git add README.md && git commit -m "Feature sample"
-````
-**解説**: 別ブランチの履歴を作ります。
-
-**確認ポイント**: ログに新コミットが出る。
-
-
-## Knock 064: mainに戻る
-
-**目的**: 元ブランチに戻る。
+**目的**: detachから戻る。
 
 ````bash
 git switch main || git switch master
 ````
-**解説**: 環境によりmain/masterが異なります。
+**解説**: 過去確認後は元ブランチへ戻ります。
 
-**確認ポイント**: ブランチ名を確認。
-
-
-## Knock 065: ブランチ差分を見る
-
-**目的**: 分岐した履歴を可視化する。
-
-````bash
-git log --oneline --graph --all --decorate -n 10
-````
-**解説**: ブランチ理解に役立ちます。
-
-**確認ポイント**: グラフ表示される。
+**確認ポイント**: 通常ブランチに戻る。
 
 
-## Knock 066: マージする
+## Knock 026: タグを作る
 
-**目的**: 作業ブランチを取り込む。
+**目的**: 重要地点に名前を付ける。
 
 ````bash
-git merge feature/sample
+git tag v0.1.0
 ````
-**解説**: 小さなブランチの統合を体験します。
+**解説**: 実験版や提出版にタグを付けると便利です。
 
-**確認ポイント**: Fast-forwardまたはmerge結果が出る。
+**確認ポイント**: `git tag` に表示。
 
 
-## Knock 067: 不要ブランチを消す
+## Knock 027: タグ一覧を見る
 
-**目的**: 統合済みブランチを削除する。
+**目的**: タグを確認する。
 
 ````bash
-git branch -d feature/sample
+git tag
 ````
-**解説**: 作業済みブランチを整理します。
+**解説**: リリースや実験節目の確認です。
 
-**確認ポイント**: ブランチ一覧から消える。
+**確認ポイント**: v0.1.0が出る。
 
 
-## Knock 068: 無視ファイルを作る
+## Knock 028: タグ詳細を見る
 
-**目的**: Git管理しないものを指定する。
+**目的**: タグ地点の内容を見る。
 
 ````bash
-cat > .gitignore <<EOF
-.venv/
-__pycache__/
-logs/
-outputs/
-*.log
-.env
-EOF
+git show v0.1.0 --stat
 ````
-**解説**: 巨大出力や秘密情報をコミットしないために重要です。
+**解説**: 提出版の確認に使えます。
 
-**確認ポイント**: `cat .gitignore` で確認。
+**確認ポイント**: statが表示される。
 
 
-## Knock 069: gitignoreをコミットする
+## Knock 029: blameを見る
 
-**目的**: 無視ルールを履歴に残す。
+**目的**: 行ごとの最終変更者・コミットを見る。
 
 ````bash
-git add .gitignore && git commit -m "Add gitignore"
+git blame README.md | head
 ````
-**解説**: チームで共有すべきルールです。
+**解説**: なぜこの行があるか追う入口です。
 
-**確認ポイント**: ログに出る。
+**確認ポイント**: 行ごとのhashが出る。
 
 
-## Knock 070: 無視確認する
+## Knock 030: bisect開始形を覚える
 
-**目的**: 無視されているファイルを見る。
+**目的**: 不具合混入コミットを二分探索する入口。
 
 ````bash
-git status --ignored -s | head
+git bisect start
 ````
-**解説**: gitignoreが効いているか確認できます。
+**解説**: 実践ではgood/bad指定が必要です。
 
-**確認ポイント**: `!!` 行が出る場合がある。
+**確認ポイント**: bisect状態になる。
+
+
+## Knock 031: bisectを終了する
+
+**目的**: bisect状態から戻る。
+
+````bash
+git bisect reset
+````
+**解説**: 開始したら必ず戻すことを覚えます。
+
+**確認ポイント**: 元ブランチ状態に戻る。
+
+
+## Knock 032: worktree一覧を見る
+
+**目的**: 複数作業ツリーを確認する。
+
+````bash
+git worktree list
+````
+**解説**: 同じrepoで複数ブランチを同時作業できます。
+
+**確認ポイント**: worktree一覧が出る。
+
+
+## Knock 033: サブディレクトリだけログを見る
+
+**目的**: src以下の履歴を見る。
+
+````bash
+git log --oneline -- src
+````
+**解説**: 研究コード部分だけ追いたい時に便利です。
+
+**確認ポイント**: src関連コミットが出る。
+
+
+## Knock 034: 大きいファイル履歴を探す
+
+**目的**: Git管理オブジェクトを見る入口。
+
+````bash
+git rev-list --objects --all | head
+````
+**解説**: 巨大ファイルを入れた疑いの調査で使います。
+
+**確認ポイント**: object一覧が出る。
+
+
+## Knock 035: trackedな巨大ファイルを探す
+
+**目的**: Git管理対象の大きいファイルを見る。
+
+````bash
+git ls-files | xargs -r du -h | sort -hr | head -n 20
+````
+**解説**: 出力やモデル重みを誤管理していないか確認できます。
+
+**確認ポイント**: 大きい順に表示。
+
+
+## Knock 036: README.mdの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- README.md
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 037: README.mdの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- README.md || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 038: README.mdを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- README.md || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 039: src/train.pyの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- src/train.py
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 040: src/train.pyの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- src/train.py || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 041: src/train.pyを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- src/train.py || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 042: configs/base.yamlの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- configs/base.yaml
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 043: configs/base.yamlの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- configs/base.yaml || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 044: configs/base.yamlを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- configs/base.yaml || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 045: requirements.txtの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- requirements.txt
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 046: requirements.txtの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- requirements.txt || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 047: requirements.txtを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- requirements.txt || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 048: .gitignoreの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- .gitignore
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 049: .gitignoreの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- .gitignore || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 050: .gitignoreを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- .gitignore || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 051: notes/memo.mdの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- notes/memo.md
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 052: notes/memo.mdの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- notes/memo.md || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 053: notes/memo.mdを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- notes/memo.md || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 054: scripts/run.shの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- scripts/run.sh
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 055: scripts/run.shの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- scripts/run.sh || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 056: scripts/run.shを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- scripts/run.sh || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 057: data/sample.csvの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- data/sample.csv
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 058: data/sample.csvの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- data/sample.csv || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 059: data/sample.csvを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- data/sample.csv || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 060: tests/test_basic.pyの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- tests/test_basic.py
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 061: tests/test_basic.pyの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- tests/test_basic.py || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 062: tests/test_basic.pyを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- tests/test_basic.py || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 063: pyproject.tomlの変更履歴を詳しく見る
+
+**目的**: 特定ファイルの履歴を追う。
+
+````bash
+git log --follow --stat -- pyproject.toml
+````
+**解説**: リネームがあっても `--follow` で追跡しやすくなります。
+
+**確認ポイント**: そのファイルの履歴が出る。
+
+
+## Knock 064: pyproject.tomlの直近差分を見る
+
+**目的**: 直近コミットでの変更を見る。
+
+````bash
+git diff HEAD~1..HEAD -- pyproject.toml || true
+````
+**解説**: レビュー・確認に使う型です。
+
+**確認ポイント**: 差分または何も出ない。
+
+
+## Knock 065: pyproject.tomlを過去版から復元する形
+
+**目的**: 過去コミットからファイルを戻す型を覚える。
+
+````bash
+git restore --source=HEAD~1 -- pyproject.toml || true
+````
+**解説**: 実プロジェクトではdiff確認後に使います。
+
+**確認ポイント**: ファイルが過去版になる場合がある。
+
+
+## Knock 066: 安全に戻すためstatusを見る
+
+**目的**: 復元後の状態確認をする。
+
+````bash
+git status -sb
+````
+**解説**: 戻した後は必ず状態確認します。
+
+**確認ポイント**: 変更状態が出る。
+
+
+## Knock 067: 復元をコミットする
+
+**目的**: 復元操作を履歴に残す。
+
+````bash
+git add -A && git commit -m "Restore selected files" || true
+````
+**解説**: 壊した履歴を消すのではなく、戻した履歴を残す発想です。
+
+**確認ポイント**: 必要ならコミットされる。
+
+
+## Knock 068: 総復習チェック 068
+
+**目的**: その領域の練習前後で現在地・時刻・ファイル状態を確認する。
+
+````bash
+pwd && date && ls -lah | head
+````
+**解説**: 初心者ほど、現在地と対象ファイルを確認する癖が重要です。迷ったらまずこの確認セットに戻ります。
+
+**確認ポイント**: 現在地、日時、ファイル一覧の先頭が表示される。
+
+
+## Knock 069: 総復習チェック 069
+
+**目的**: その領域の練習前後で現在地・時刻・ファイル状態を確認する。
+
+````bash
+pwd && date && ls -lah | head
+````
+**解説**: 初心者ほど、現在地と対象ファイルを確認する癖が重要です。迷ったらまずこの確認セットに戻ります。
+
+**確認ポイント**: 現在地、日時、ファイル一覧の先頭が表示される。
+
+
+## Knock 070: 総復習チェック 070
+
+**目的**: その領域の練習前後で現在地・時刻・ファイル状態を確認する。
+
+````bash
+pwd && date && ls -lah | head
+````
+**解説**: 初心者ほど、現在地と対象ファイルを確認する癖が重要です。迷ったらまずこの確認セットに戻ります。
+
+**確認ポイント**: 現在地、日時、ファイル一覧の先頭が表示される。
 
 
 ## Knock 071: 総復習チェック 071
