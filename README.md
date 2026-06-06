@@ -14,7 +14,6 @@ cd ~/ubuntu100knock
 詳しくは [`docs/setup_windows_single_pc.md`](docs/setup_windows_single_pc.md) を参照してください。
 
 ## 構成方針
-
 このリポジトリは、**領域（分野）ごとのディレクトリ**に整理しています。
 各領域の中には、次の2本を置きます。
 
