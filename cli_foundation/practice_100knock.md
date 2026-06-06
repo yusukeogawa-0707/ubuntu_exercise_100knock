@@ -5,6 +5,15 @@
 
 > 1周目=写経、2周目=説明を見て自力、3周目=目的だけ見て再現。
 
+
+## 実行環境について
+
+この実践編には `ssh myserver ...` や `rsync ... myserver:...` のように、研究サーバやSSH接続先が必要なKnockが含まれます。Windows PC 1台だけで始める場合は、まず [`docs/setup_windows_single_pc.md`](../docs/setup_windows_single_pc.md) に沿ってWSL Ubuntuとローカル練習データを用意し、`myserver` が必要なKnockは「読む・意味を確認する・ローカル代替で試す」扱いにしてください。
+
+- サーバ不要の確認だけ先に練習する例：`hostname && pwd && free -h`
+- rsyncの考え方だけ先に練習する例：`rsync -avP data/ ~/ubuntu100knock/mock_server/ubuntu100_data_rsync/`
+- 本物のSSH先ができたら、`~/.ssh/config` に `Host myserver` を登録してから実行します。
+
 ## VPN/SSH入口
 
 ### Knock 001: ユーザ確認
@@ -164,10 +173,10 @@ ssh myserver
 ### Knock 020: 状態一括
 
 ```bash
-ssh myserver "hostname && free -h && df -h"
+ssh myserver "hostname && pwd && free -h"
 ```
 
-**解説**：一括確認。
+**解説**：`ssh myserver "..."` は、短縮名 `myserver` に接続してサーバ側でコマンドを実行する書き方です。`&&` は「左のコマンドが成功したら次を実行する」という意味なので、`hostname` で接続先を確認し、`pwd` で実行場所を確認し、`free -h` でメモリ状況を人間が読みやすい単位で確認できます。リモートサーバにログインしっぱなしにせず、状態確認だけをまとめて行いたい場面で役立ちます。
 
 ## curl/wget
 
@@ -301,7 +310,7 @@ rsync -avP --dry-run data/ myserver:~/ubuntu100_data_rsync/
 rsync -avP data/ myserver:~/ubuntu100_data_rsync/
 ```
 
-**解説**：差分送信。
+**解説**：`rsync` で `data/` の中身をリモートの `~/ubuntu100_data_rsync/` へ実際に同期します。`-a` は属性を保って再帰コピーする archive、`-v` は詳細表示、`-P` は進捗表示と途中再開をまとめた指定です。研究データ・実験結果・大量ファイルを転送するときは、差分だけを送り直せる `rsync` が `scp` より便利な場面が多く、転送が中断しても再実行しやすいのが強みです。
 
 ### Knock 037: rsync回収
 
@@ -539,7 +548,7 @@ grep -n -C 2 "ERROR" logs/app.log
 grep -n -B 3 "ERROR" logs/app.log
 ```
 
-**解説**：直前。
+**解説**：`grep -n` は行番号を付け、`-B 3` は before（マッチした行の直前3行も表示）を意味します。エラー行だけでは原因が分からず、その直前の `WARN` や設定読み込みメッセージに手がかりがあることがよくあります。ログ調査では、まず `grep "ERROR"` で場所を見つけ、次に `-B` や `-A` で前後の文脈を読むと、原因特定が速くなります。
 
 ### Knock 066: 後
 

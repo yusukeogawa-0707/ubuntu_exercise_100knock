@@ -2,8 +2,18 @@
 
 研究実装者向けの Ubuntu / Linux CLI 練習リポジトリです。
 
-## 構成方針
+## 最初に環境を作る
 
+Windows PC 1台だけでも始められるように、WSL Ubuntu前提のセットアップ手順と、ローカル練習用データ作成スクリプトを用意しています。研究サーバやSSH接続先がない場合は、まずローカルで入門編を進め、`myserver` が出る実践Knockは後回しにしてください。
+
+```bash
+bash scripts/setup_local_practice_env.sh
+cd ~/ubuntu100knock
+```
+
+詳しくは [`docs/setup_windows_single_pc.md`](docs/setup_windows_single_pc.md) を参照してください。
+
+## 構成方針
 このリポジトリは、**領域（分野）ごとのディレクトリ**に整理しています。
 各領域の中には、次の2本を置きます。
 
@@ -30,6 +40,8 @@
 - `manifest.json`：領域、入門編・実践編、Knock数の機械可読な一覧。
 - `progress/`：3周するための進捗管理。
 - `cheatsheets/`：重要コマンドの早見表。
+- `docs/setup_windows_single_pc.md`：Windows PC 1台から始めるためのWSL・ローカル練習環境ガイド。
+- `scripts/setup_local_practice_env.sh`：CSV、ログ、Pythonスクリプト、擬似サーバ用ディレクトリを作るローカル練習環境セットアップ。
 
 ## 推奨学習順
 
@@ -38,6 +50,16 @@
 3. `python_env/intro_100knock.md`、`git/intro_100knock.md`、`shell/intro_100knock.md` に進む。
 4. 必要に応じて `permissions/`、`network/`、`jobs/`、`archive_cron/`、`docker/` の入門編を進める。
 5. 各領域の `practice_100knock.md` に進み、実務に近い形で反復する。
+
+
+## 問題・解答・解説の品質方針
+
+各Knockは、単にコマンドを並べるだけではなく、**なぜそのコマンドを使うのか**まで学べる形を目指します。特に解説は次の要素を含める方針です。
+
+- **コマンドの役割**：何を確認・作成・検索・転送するための操作なのか。
+- **主要オプションの意味**：例：`grep -c` の `-c` は count、`grep -B 3` の `-B` は before、`rsync -avP` の `-a`/`-v`/`-P` は属性保持・詳細表示・進捗/再開。
+- **使う場面**：ログ調査、研究データ転送、リモートサーバ状態確認、実験結果回収など、研究・開発実務でどう役立つか。
+- **次に試す派生形**：必要に応じて `tail -f`、`tail -n 50`、`grep -A`、`--dry-run` のような発展操作へつなげる。
 
 ## GitHubに置く手順
 
