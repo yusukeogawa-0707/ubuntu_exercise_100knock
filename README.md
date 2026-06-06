@@ -2,6 +2,17 @@
 
 研究実装者向けの Ubuntu / Linux CLI 練習リポジトリです。
 
+## 最初に環境を作る
+
+Windows PC 1台だけでも始められるように、WSL Ubuntu前提のセットアップ手順と、ローカル練習用データ作成スクリプトを用意しています。研究サーバやSSH接続先がない場合は、まずローカルで入門編を進め、`myserver` が出る実践Knockは後回しにしてください。
+
+```bash
+bash scripts/setup_local_practice_env.sh
+cd ~/ubuntu100knock
+```
+
+詳しくは [`docs/setup_windows_single_pc.md`](docs/setup_windows_single_pc.md) を参照してください。
+
 ## 構成方針
 
 このリポジトリは、**領域（分野）ごとのディレクトリ**に整理しています。
@@ -30,6 +41,8 @@
 - `manifest.json`：領域、入門編・実践編、Knock数の機械可読な一覧。
 - `progress/`：3周するための進捗管理。
 - `cheatsheets/`：重要コマンドの早見表。
+- `docs/setup_windows_single_pc.md`：Windows PC 1台から始めるためのWSL・ローカル練習環境ガイド。
+- `scripts/setup_local_practice_env.sh`：CSV、ログ、Pythonスクリプト、擬似サーバ用ディレクトリを作るローカル練習環境セットアップ。
 
 ## 推奨学習順
 

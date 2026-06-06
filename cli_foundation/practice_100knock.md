@@ -5,6 +5,15 @@
 
 > 1周目=写経、2周目=説明を見て自力、3周目=目的だけ見て再現。
 
+
+## 実行環境について
+
+この実践編には `ssh myserver ...` や `rsync ... myserver:...` のように、研究サーバやSSH接続先が必要なKnockが含まれます。Windows PC 1台だけで始める場合は、まず [`docs/setup_windows_single_pc.md`](../docs/setup_windows_single_pc.md) に沿ってWSL Ubuntuとローカル練習データを用意し、`myserver` が必要なKnockは「読む・意味を確認する・ローカル代替で試す」扱いにしてください。
+
+- サーバ不要の確認だけ先に練習する例：`hostname && pwd && free -h`
+- rsyncの考え方だけ先に練習する例：`rsync -avP data/ ~/ubuntu100knock/mock_server/ubuntu100_data_rsync/`
+- 本物のSSH先ができたら、`~/.ssh/config` に `Host myserver` を登録してから実行します。
+
 ## VPN/SSH入口
 
 ### Knock 001: ユーザ確認
